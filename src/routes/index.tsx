@@ -609,6 +609,26 @@ function Index() {
         </div>
       </section>
 
+      {/* Projects Gallery */}
+      <section id="projects" className="px-6 py-20 lg:px-8 lg:py-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="text-sm font-semibold uppercase tracking-wider text-sun">
+              Project Gallery
+            </span>
+            <h2 className="mt-3 font-display text-3xl font-bold text-navy md:text-4xl">
+              Before & After Solar Transformations
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              See how homes and businesses across Manakkad and Thodupuzha are
+              saving with solar. Drag the slider to compare before and after.
+            </p>
+          </div>
+
+          <ProjectsGallery />
+        </div>
+      </section>
+
       {/* Reviews Section */}
       <section id="reviews" className="bg-muted/30 px-6 py-20 lg:px-8 lg:py-28">
         <div className="mx-auto max-w-7xl">
