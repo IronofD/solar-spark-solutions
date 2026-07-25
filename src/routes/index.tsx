@@ -128,9 +128,9 @@ function Logo({ className }: { className?: string }) {
       <img
         src={logoAsset.url}
         alt="Java Solar Solutions"
-        className="h-10 w-auto"
-        width="200"
-        height="80"
+        className="h-12 w-auto"
+        width="240"
+        height="96"
       />
     </a>
   );
