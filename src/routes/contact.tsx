@@ -1,0 +1,81 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+
+export const Route = createFileRoute("/contact")({
+  component: ContactPage,
+  head: () => ({
+    meta: [
+      { title: "Contact Java Solar Solutions — Free Solar Quote in Kerala" },
+      { name: "description", content: "Get a free site visit and custom solar quote in Manakkad, Thodupuzha, and across Kerala. Call, WhatsApp, or send us a message." },
+      { property: "og:title", content: "Contact Java Solar Solutions — Free Solar Quote in Kerala" },
+      { property: "og:description", content: "Contact Java Solar Solutions for a free consultation and solar quote." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/contact" },
+    ],
+    links: [{ rel: "canonical", href: "/contact" }],
+  }),
+});
+
+function ContactPage() {
+  return (
+    <section className="px-6 py-20 lg:px-8 lg:py-28">
+      <div className="mx-auto max-w-3xl text-center">
+        <span className="text-sm font-semibold uppercase tracking-wider text-sun">Contact</span>
+        <h1 className="mt-3 font-display text-4xl font-bold text-navy md:text-5xl">Ready to Switch to Solar?</h1>
+        <p className="mt-4 text-muted-foreground">
+          Contact Java Solar Solutions for a free site inspection and savings report tailored to your home or business.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-14 grid max-w-5xl gap-12 lg:grid-cols-5">
+        <div className="lg:col-span-2">
+          <div className="space-y-6">
+            {[
+              { icon: Phone, title: "Phone", body: <a href="tel:+919876543210" className="text-muted-foreground hover:text-navy">+91 98765 43210</a> },
+              { icon: Mail, title: "Email", body: <a href="mailto:hello@javasolar.com" className="text-muted-foreground hover:text-navy">hello@javasolar.com</a> },
+              { icon: MapPin, title: "Address", body: <address className="not-italic text-muted-foreground">Manakkad, Thodupuzha<br />Kerala, 685608</address> },
+              { icon: Clock, title: "Hours", body: <p className="text-muted-foreground">Mon — Sat: 9:00 AM — 6:00 PM<br />Sunday: Closed</p> },
+            ].map((item) => (
+              <div key={item.title} className="flex items-start gap-4">
+                <div className="flex size-10 items-center justify-center rounded-full bg-sun/10 text-sun">
+                  <item.icon className="size-5" />
+                </div>
+                <div>
+                  <div className="font-semibold text-foreground">{item.title}</div>
+                  {item.body}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="lg:col-span-3">
+          <form className="rounded-3xl border border-border bg-card p-6 md:p-8">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="space-y-2">
+                <label htmlFor="name" className="text-sm font-medium">Full Name</label>
+                <input id="name" type="text" placeholder="Your name" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="phone" className="text-sm font-medium">Phone Number</label>
+                <input id="phone" type="tel" placeholder="+91 98765 43210" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
+              </div>
+            </div>
+            <div className="mt-4 space-y-2">
+              <label htmlFor="email" className="text-sm font-medium">Email</label>
+              <input id="email" type="email" placeholder="you@example.com" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
+            </div>
+            <div className="mt-4 space-y-2">
+              <label htmlFor="message" className="text-sm font-medium">Project Details</label>
+              <textarea id="message" rows={4} placeholder="Tell us about your home, average electricity bill, or any questions..." className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
+            </div>
+            <button type="submit" className="mt-6 w-full rounded-xl bg-sun px-6 py-4 text-base font-semibold text-foreground shadow-lg shadow-sun/20 hover:bg-sun-dark">
+              Submit Inquiry
+            </button>
+            <p className="mt-3 text-center text-xs text-muted-foreground">We will get back to you within 24 hours.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+}

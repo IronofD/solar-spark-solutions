@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { SiteHeader, SiteFooter, MobileCTA } from "../components/site-chrome";
 
 function NotFoundComponent() {
   return (
@@ -142,8 +143,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <div className="min-h-screen font-sans text-foreground antialiased">
+        <SiteHeader />
+        <Outlet />
+        <SiteFooter />
+        <MobileCTA />
+      </div>
     </QueryClientProvider>
   );
 }
