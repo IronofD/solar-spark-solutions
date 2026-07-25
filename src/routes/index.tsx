@@ -131,6 +131,188 @@ const stats = [
   { value: "25Y", label: "Panel Warranty" },
 ];
 
+const projects = [
+  {
+    id: "home-manakkad",
+    type: "home" as const,
+    title: "Manakkad Family Home",
+    location: "Manakkad, Kerala",
+    beforeImage: homeBefore,
+    afterImage: homeAfter,
+    systemSize: "5 kW",
+    savings: "92%",
+    billBefore: "₹4,800/mo",
+    billAfter: "₹380/mo",
+    description:
+      "A two-story family home switched to a 5 kW rooftop system. Monthly KSEB bills dropped from nearly ₹4,800 to under ₹400, with surplus power exported to the grid.",
+    highlights: ["5 kW grid-tied system", "Net metering enabled", "25-year panel warranty"],
+  },
+  {
+    id: "business-thodupuzha",
+    type: "business" as const,
+    title: "Thodupuzha Commercial Complex",
+    location: "Thodupuzha, Kerala",
+    beforeImage: businessBefore,
+    afterImage: businessAfter,
+    systemSize: "10 kW",
+    savings: "78%",
+    billBefore: "₹18,500/mo",
+    billAfter: "₹4,100/mo",
+    description:
+      "A retail and office building reduced its operating costs with a 10 kW commercial installation. The system runs lighting, AC, and equipment during peak business hours.",
+    highlights: ["10 kW commercial array", "Daytime load offset", "Depreciation benefits"],
+  },
+];
+
+function BeforeAfterSlider({
+  beforeImage,
+  afterImage,
+  beforeAlt,
+  afterAlt,
+}: {
+  beforeImage: { url: string };
+  afterImage: { url: string };
+  beforeAlt: string;
+  afterAlt: string;
+}) {
+  const [position, setPosition] = useState(50);
+  const [isDragging, setIsDragging] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const updatePosition = useCallback((clientX: number) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+    setPosition((x / rect.width) * 100);
+  }, []);
+
+  const handlePointerDown = (clientX: number) => {
+    setIsDragging(true);
+    updatePosition(clientX);
+  };
+
+  const handlePointerMove = (clientX: number) => {
+    if (!isDragging) return;
+    updatePosition(clientX);
+  };
+
+  const stopDragging = () => setIsDragging(false);
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative aspect-[4/3] cursor-ew-resize overflow-hidden rounded-2xl bg-muted select-none"
+      onMouseDown={(e) => handlePointerDown(e.clientX)}
+      onMouseMove={(e) => handlePointerMove(e.clientX)}
+      onMouseUp={stopDragging}
+      onMouseLeave={stopDragging}
+      onTouchStart={(e) => handlePointerDown(e.touches[0].clientX)}
+      onTouchMove={(e) => handlePointerMove(e.touches[0].clientX)}
+      onTouchEnd={stopDragging}
+      onKeyDown={(e) => {
+        if (e.key === "ArrowLeft") setPosition((p) => Math.max(0, p - 5));
+        if (e.key === "ArrowRight") setPosition((p) => Math.min(100, p + 5));
+      }}
+      role="slider"
+      aria-label="Before and after comparison"
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuenow={Math.round(position)}
+      tabIndex={0}
+    >
+      <img
+        src={beforeImage.url}
+        alt={beforeAlt}
+        className="absolute inset-0 h-full w-full object-cover"
+        width={1024}
+        height={768}
+        loading="lazy"
+        draggable={false}
+      />
+      <img
+        src={afterImage.url}
+        alt={afterAlt}
+        className="absolute inset-0 h-full w-full object-cover"
+        style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
+        width={1024}
+        height={768}
+        loading="lazy"
+        draggable={false}
+      />
+      <div
+        className="pointer-events-none absolute inset-y-0 w-0.5 bg-white shadow-[0_0_10px_rgba(0,0,0,0.2)]"
+        style={{ left: `${position}%`, transform: "translateX(-50%)" }}
+      />
+      <div
+        className="pointer-events-none absolute top-1/2 flex size-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-sun text-white shadow-lg"
+        style={{ left: `${position}%` }}
+      >
+        <ArrowRight className="size-4" />
+      </div>
+      <span className="absolute bottom-3 left-3 rounded-md bg-black/60 px-2 py-1 text-xs font-semibold text-white">
+        Before
+      </span>
+      <span className="absolute bottom-3 right-3 rounded-md bg-sun/90 px-2 py-1 text-xs font-semibold text-foreground">
+        After
+      </span>
+    </div>
+  );
+}
+
+function ProjectCard({ project }: { project: (typeof projects)[0] }) {
+  return (
+    <article className="overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all hover:shadow-lg">
+      <BeforeAfterSlider
+        beforeImage={project.beforeImage}
+        afterImage={project.afterImage}
+        beforeAlt={`Before solar installation — ${project.title}`}
+        afterAlt={`After solar installation — ${project.title}`}
+      />
+      <div className="p-6 md:p-8">
+        <div className="flex items-center justify-between gap-3">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-sun/10 px-3 py-1 text-xs font-semibold text-sun-dark">
+            {project.type === "home" ? (
+              <Home className="size-3.5" />
+            ) : (
+              <Building2 className="size-3.5" />
+            )}
+            {project.type === "home" ? "Homeowner" : "Business"}
+          </span>
+          <span className="text-xs text-muted-foreground">{project.location}</span>
+        </div>
+        <h3 className="mt-4 font-display text-xl font-semibold text-foreground">
+          {project.title}
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          {project.description}
+        </p>
+        <div className="mt-5 grid grid-cols-3 gap-3 rounded-2xl bg-muted/50 p-4">
+          <div>
+            <div className="text-xs text-muted-foreground">System</div>
+            <div className="font-semibold text-navy">{project.systemSize}</div>
+          </div>
+          <div>
+            <div className="text-xs text-muted-foreground">Bill Drop</div>
+            <div className="font-semibold text-navy">{project.savings}</div>
+          </div>
+          <div>
+            <div className="text-xs text-muted-foreground">Now Paying</div>
+            <div className="font-semibold text-navy">{project.billAfter}</div>
+          </div>
+        </div>
+        <ul className="mt-5 space-y-2">
+          {project.highlights.map((highlight) => (
+            <li key={highlight} className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Zap className="size-4 text-sun" />
+              {highlight}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </article>
+  );
+}
+
 function Logo({ className }: { className?: string }) {
   return (
     <a href="/" className={`flex items-center gap-2 ${className ?? ""}`}>
