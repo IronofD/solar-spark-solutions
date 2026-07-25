@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState, useRef, useCallback } from "react";
 import {
   Home,
   Building2,
@@ -13,10 +14,17 @@ import {
   Star,
   ArrowRight,
   Mail,
+  Zap,
+  TrendingDown,
+  Images,
 } from "lucide-react";
 
 import logoAsset from "@/assets/java-solar-logo.png.asset.json";
 import heroImage from "@/assets/hero-solar-home.jpg";
+import homeBefore from "@/assets/project-home-before.jpg.asset.json";
+import homeAfter from "@/assets/project-home-after.jpg.asset.json";
+import businessBefore from "@/assets/project-business-before.jpg.asset.json";
+import businessAfter from "@/assets/project-business-after.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -47,6 +55,7 @@ export const Route = createFileRoute("/")({
 
 const navLinks = [
   { label: "Services", href: "#services" },
+  { label: "Projects", href: "#projects" },
   { label: "About", href: "#about" },
   { label: "Reviews", href: "#reviews" },
   { label: "Contact", href: "#contact" },
