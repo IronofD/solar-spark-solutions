@@ -313,6 +313,65 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
   );
 }
 
+function ProjectsGallery() {
+  const [filter, setFilter] = useState<"all" | "home" | "business">("all");
+
+  const filtered =
+    filter === "all"
+      ? projects
+      : projects.filter((project) => project.type === filter);
+
+  const tabs = [
+    { key: "all" as const, label: "All Projects", icon: Images },
+    { key: "home" as const, label: "Homes", icon: Home },
+    { key: "business" as const, label: "Businesses", icon: Building2 },
+  ];
+
+  return (
+    <>
+      <div className="mt-10 flex flex-wrap justify-center gap-2">
+        {tabs.map((tab) => (
+          <button
+            key={tab.key}
+            onClick={() => setFilter(tab.key)}
+            className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors ${
+              filter === tab.key
+                ? "bg-navy text-cream"
+                : "border border-border bg-background text-muted-foreground hover:text-foreground"
+            }`}
+            aria-pressed={filter === tab.key}
+          >
+            <tab.icon className="size-4" />
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="mt-14 grid gap-8 md:grid-cols-2">
+        {filtered.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </div>
+
+      {filtered.length === 0 && (
+        <p className="mt-14 text-center text-muted-foreground">
+          No projects in this category yet. Contact us to be the first.
+        </p>
+      )}
+
+      <div className="mt-12 text-center">
+        <a
+          href="#contact"
+          className="inline-flex items-center gap-2 rounded-xl bg-sun px-6 py-3 font-semibold text-foreground shadow-sm transition-colors hover:bg-sun-dark"
+        >
+          Start Your Project
+          <ArrowRight className="size-4" />
+        </a>
+      </div>
+    </>
+  );
+}
+
 function Logo({ className }: { className?: string }) {
   return (
     <a href="/" className={`flex items-center gap-2 ${className ?? ""}`}>
