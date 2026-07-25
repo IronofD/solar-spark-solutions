@@ -15,7 +15,6 @@ import {
   ArrowRight,
   Mail,
   Zap,
-  TrendingDown,
   Images,
 } from "lucide-react";
 
