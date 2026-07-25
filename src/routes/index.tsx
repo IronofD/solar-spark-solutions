@@ -448,7 +448,7 @@ function Index() {
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
               Java Solar Solutions makes solar power simple and affordable for
-              homeowners and businesses across Thodupuzha. From custom design to
+              homeowners and businesses across Kerala. From custom design to
               installation and support, we help you gain energy independence and
               slash your electricity bills.
             </p>
