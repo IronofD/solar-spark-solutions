@@ -1,8 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ProjectsGallery } from "@/components/before-after";
 import { SectionCTA } from "@/components/site-chrome";
+import { caseStudiesQueryOptions } from "@/lib/case-studies-query";
 
 export const Route = createFileRoute("/projects")({
+  loader: ({ context }) => context.queryClient.ensureQueryData(caseStudiesQueryOptions),
   component: ProjectsPage,
   head: () => ({
     meta: [
