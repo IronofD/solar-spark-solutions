@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Home, Sun, Shield, TrendingDown } from "lucide-react";
-import heroImage from "@/assets/hero-solar-home.jpg";
+import heroImage from "@/assets/hero-solar-home.png";
 import { SectionCTA } from "@/components/site-chrome";
 
 export const Route = createFileRoute("/residential")({

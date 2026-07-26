@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MapPin } from "lucide-react";
-import heroImage from "@/assets/hero-solar-home.jpg";
+import heroImage from "@/assets/hero-solar-home.png";
 import { testimonials, stats } from "@/lib/site-data";
 import { StarRating, SectionCTA } from "@/components/site-chrome";
 
