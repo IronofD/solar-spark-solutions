@@ -1,7 +1,9 @@
 import { useState, useRef, useCallback } from "react";
 import { Home, Building2, Zap, ArrowRight, Images } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { projects } from "@/lib/site-data";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { caseStudiesQueryOptions } from "@/lib/case-studies-query";
+import type { CaseStudy } from "@/lib/case-studies";
 
 export function BeforeAfterSlider({
   beforeImage,
@@ -59,20 +61,20 @@ export function BeforeAfterSlider({
   );
 }
 
-export function ProjectCard({ project }: { project: (typeof projects)[0] }) {
+export function ProjectCard({ project }: { project: CaseStudy }) {
   return (
     <article className="overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all hover:shadow-lg">
       <BeforeAfterSlider
-        beforeImage={project.beforeImage}
-        afterImage={project.afterImage}
+        beforeImage={project.before_image_url}
+        afterImage={project.after_image_url}
         beforeAlt={`Before solar installation — ${project.title}`}
         afterAlt={`After solar installation — ${project.title}`}
       />
       <div className="p-6 md:p-8">
         <div className="flex items-center justify-between gap-3">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-sun/10 px-3 py-1 text-xs font-semibold text-sun-dark">
-            {project.type === "home" ? <Home className="size-3.5" /> : <Building2 className="size-3.5" />}
-            {project.type === "home" ? "Homeowner" : "Business"}
+            {project.customer_type === "home" ? <Home className="size-3.5" /> : <Building2 className="size-3.5" />}
+            {project.customer_type === "home" ? "Homeowner" : "Business"}
           </span>
           <span className="text-xs text-muted-foreground">{project.location}</span>
         </div>
@@ -81,7 +83,7 @@ export function ProjectCard({ project }: { project: (typeof projects)[0] }) {
         <div className="mt-5 grid grid-cols-3 gap-3 rounded-2xl bg-muted/50 p-4">
           <div>
             <div className="text-xs text-muted-foreground">System</div>
-            <div className="font-semibold text-navy">{project.systemSize}</div>
+            <div className="font-semibold text-navy">{project.system_size}</div>
           </div>
           <div>
             <div className="text-xs text-muted-foreground">Bill Drop</div>
@@ -89,7 +91,7 @@ export function ProjectCard({ project }: { project: (typeof projects)[0] }) {
           </div>
           <div>
             <div className="text-xs text-muted-foreground">Now Paying</div>
-            <div className="font-semibold text-navy">{project.billAfter}</div>
+            <div className="font-semibold text-navy">{project.bill_after}</div>
           </div>
         </div>
         <ul className="mt-5 space-y-2">
@@ -107,7 +109,9 @@ export function ProjectCard({ project }: { project: (typeof projects)[0] }) {
 
 export function ProjectsGallery() {
   const [filter, setFilter] = useState<"all" | "home" | "business">("all");
-  const filtered = filter === "all" ? projects : projects.filter((p) => p.type === filter);
+  const { data: caseStudies } = useSuspenseQuery(caseStudiesQueryOptions);
+  const filtered =
+    filter === "all" ? caseStudies : caseStudies.filter((p) => p.customer_type === filter);
   const tabs = [
     { key: "all" as const, label: "All Projects", icon: Images },
     { key: "home" as const, label: "Homes", icon: Home },
@@ -138,6 +142,9 @@ export function ProjectsGallery() {
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>
+      {filtered.length === 0 && (
+        <p className="mt-14 text-center text-muted-foreground">No projects to show yet — check back soon.</p>
+      )}
       <div className="mt-12 text-center">
         <Link
           to="/contact"
