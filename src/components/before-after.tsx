@@ -9,8 +9,8 @@ export function BeforeAfterSlider({
   beforeAlt,
   afterAlt,
 }: {
-  beforeImage: { url: string };
-  afterImage: { url: string };
+  beforeImage: string;
+  afterImage: string;
   beforeAlt: string;
   afterAlt: string;
 }) {
