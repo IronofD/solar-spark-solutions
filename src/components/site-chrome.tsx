@@ -9,7 +9,7 @@ export function Logo({ className }: { className?: string }) {
       <img
         src={logoAsset}
         alt="Java Solar Solutions"
-        className="h-14 w-auto md:h-16"
+        className="h-16 w-auto md:h-20"
         width="1512"
         height="1920"
       />
