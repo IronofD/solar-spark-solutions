@@ -65,16 +65,16 @@ export function ProjectCard({ project }: { project: CaseStudy }) {
   return (
     <article className="overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all hover:shadow-lg">
       <BeforeAfterSlider
-        beforeImage={project.beforeImage}
-        afterImage={project.afterImage}
+        beforeImage={project.before_image_url}
+        afterImage={project.after_image_url}
         beforeAlt={`Before solar installation — ${project.title}`}
         afterAlt={`After solar installation — ${project.title}`}
       />
       <div className="p-6 md:p-8">
         <div className="flex items-center justify-between gap-3">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-sun/10 px-3 py-1 text-xs font-semibold text-sun-dark">
-            {project.type === "home" ? <Home className="size-3.5" /> : <Building2 className="size-3.5" />}
-            {project.type === "home" ? "Homeowner" : "Business"}
+            {project.customer_type === "home" ? <Home className="size-3.5" /> : <Building2 className="size-3.5" />}
+            {project.customer_type === "home" ? "Homeowner" : "Business"}
           </span>
           <span className="text-xs text-muted-foreground">{project.location}</span>
         </div>
