@@ -91,7 +91,7 @@ export function ProjectCard({ project }: { project: CaseStudy }) {
           </div>
           <div>
             <div className="text-xs text-muted-foreground">Now Paying</div>
-            <div className="font-semibold text-navy">{project.billAfter}</div>
+            <div className="font-semibold text-navy">{project.bill_after}</div>
           </div>
         </div>
         <ul className="mt-5 space-y-2">
