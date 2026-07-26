@@ -59,7 +59,7 @@ export function BeforeAfterSlider({
   );
 }
 
-export function ProjectCard({ project }: { project: (typeof projects)[0] }) {
+export function ProjectCard({ project }: { project: CaseStudy }) {
   return (
     <article className="overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all hover:shadow-lg">
       <BeforeAfterSlider
