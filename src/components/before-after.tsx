@@ -1,7 +1,9 @@
 import { useState, useRef, useCallback } from "react";
 import { Home, Building2, Zap, ArrowRight, Images } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { projects } from "@/lib/site-data";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { caseStudiesQueryOptions } from "@/lib/case-studies-query";
+import type { CaseStudy } from "@/lib/case-studies";
 
 export function BeforeAfterSlider({
   beforeImage,
