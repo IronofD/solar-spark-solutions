@@ -9,8 +9,8 @@ export function BeforeAfterSlider({
   beforeAlt,
   afterAlt,
 }: {
-  beforeImage: { url: string };
-  afterImage: { url: string };
+  beforeImage: string;
+  afterImage: string;
   beforeAlt: string;
   afterAlt: string;
 }) {
@@ -47,8 +47,8 @@ export function BeforeAfterSlider({
       aria-valuenow={Math.round(position)}
       tabIndex={0}
     >
-      <img src={beforeImage.url} alt={beforeAlt} className="absolute inset-0 h-full w-full object-cover" width={1024} height={768} loading="lazy" draggable={false} />
-      <img src={afterImage.url} alt={afterAlt} className="absolute inset-0 h-full w-full object-cover" style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }} width={1024} height={768} loading="lazy" draggable={false} />
+      <img src={beforeImage} alt={beforeAlt} className="absolute inset-0 h-full w-full object-cover" width={1024} height={768} loading="lazy" draggable={false} />
+      <img src={afterImage} alt={afterAlt} className="absolute inset-0 h-full w-full object-cover" style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }} width={1024} height={768} loading="lazy" draggable={false} />
       <div className="pointer-events-none absolute inset-y-0 w-0.5 bg-white shadow-[0_0_10px_rgba(0,0,0,0.2)]" style={{ left: `${position}%`, transform: "translateX(-50%)" }} />
       <div className="pointer-events-none absolute top-1/2 flex size-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-sun text-white shadow-lg" style={{ left: `${position}%` }}>
         <ArrowRight className="size-4" />

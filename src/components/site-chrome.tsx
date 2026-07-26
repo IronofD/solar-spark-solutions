@@ -1,13 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { Phone, MessageCircle, ArrowRight, Star } from "lucide-react";
-import logoAsset from "@/assets/java-solar-logo.png.asset.json";
+import logoAsset from "@/assets/java-solar-logo.png";
 import { navLinks } from "@/lib/site-data";
 
 export function Logo({ className }: { className?: string }) {
   return (
     <Link to="/" className={`flex items-center gap-2 ${className ?? ""}`}>
       <img
-        src={logoAsset.url}
+        src={logoAsset}
         alt="Java Solar Solutions"
         className="h-12 w-auto"
         width="240"

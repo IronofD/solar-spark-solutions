@@ -6,10 +6,10 @@ import {
   Shield,
   BadgeCheck,
 } from "lucide-react";
-import homeBefore from "@/assets/project-home-before.jpg.asset.json";
-import homeAfter from "@/assets/project-home-after.jpg.asset.json";
-import businessBefore from "@/assets/project-business-before.jpg.asset.json";
-import businessAfter from "@/assets/project-business-after.jpg.asset.json";
+import homeBefore from "@/assets/project-home-before.png";
+import homeAfter from "@/assets/project-home-after.png";
+import businessBefore from "@/assets/project-business-before.png";
+import businessAfter from "@/assets/project-business-after.png";
 
 export const navLinks = [
   { label: "Services", to: "/services" as const },
