@@ -109,7 +109,9 @@ export function ProjectCard({ project }: { project: CaseStudy }) {
 
 export function ProjectsGallery() {
   const [filter, setFilter] = useState<"all" | "home" | "business">("all");
-  const filtered = filter === "all" ? projects : projects.filter((p) => p.type === filter);
+  const { data: caseStudies } = useSuspenseQuery(caseStudiesQueryOptions);
+  const filtered =
+    filter === "all" ? caseStudies : caseStudies.filter((p) => p.customer_type === filter);
   const tabs = [
     { key: "all" as const, label: "All Projects", icon: Images },
     { key: "home" as const, label: "Homes", icon: Home },
