@@ -83,7 +83,7 @@ export function ProjectCard({ project }: { project: CaseStudy }) {
         <div className="mt-5 grid grid-cols-3 gap-3 rounded-2xl bg-muted/50 p-4">
           <div>
             <div className="text-xs text-muted-foreground">System</div>
-            <div className="font-semibold text-navy">{project.systemSize}</div>
+            <div className="font-semibold text-navy">{project.system_size}</div>
           </div>
           <div>
             <div className="text-xs text-muted-foreground">Bill Drop</div>
