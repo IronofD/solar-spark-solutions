@@ -142,6 +142,9 @@ export function ProjectsGallery() {
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>
+      {filtered.length === 0 && (
+        <p className="mt-14 text-center text-muted-foreground">No projects to show yet — check back soon.</p>
+      )}
       <div className="mt-12 text-center">
         <Link
           to="/contact"
