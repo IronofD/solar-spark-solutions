@@ -6,10 +6,6 @@ import {
   Shield,
   BadgeCheck,
 } from "lucide-react";
-import homeBefore from "@/assets/project-home-before.png";
-import homeAfter from "@/assets/project-home-after.png";
-import businessBefore from "@/assets/project-business-before.png";
-import businessAfter from "@/assets/project-business-after.png";
 
 export const navLinks = [
   { label: "Services", to: "/services" as const },
@@ -90,35 +86,3 @@ export const stats = [
   { value: "25Y", label: "Panel Warranty" },
 ];
 
-export const projects = [
-  {
-    id: "home-manakkad",
-    type: "home" as const,
-    title: "Manakkad Family Home",
-    location: "Manakkad, Kerala",
-    beforeImage: homeBefore,
-    afterImage: homeAfter,
-    systemSize: "5 kW",
-    savings: "92%",
-    billBefore: "₹4,800/mo",
-    billAfter: "₹380/mo",
-    description:
-      "A two-story family home switched to a 5 kW rooftop system. Monthly KSEB bills dropped from nearly ₹4,800 to under ₹400, with surplus power exported to the grid.",
-    highlights: ["5 kW grid-tied system", "Net metering enabled", "25-year panel warranty"],
-  },
-  {
-    id: "business-thodupuzha",
-    type: "business" as const,
-    title: "Thodupuzha Commercial Complex",
-    location: "Thodupuzha, Kerala",
-    beforeImage: businessBefore,
-    afterImage: businessAfter,
-    systemSize: "10 kW",
-    savings: "78%",
-    billBefore: "₹18,500/mo",
-    billAfter: "₹4,100/mo",
-    description:
-      "A retail and office building reduced its operating costs with a 10 kW commercial installation. The system runs lighting, AC, and equipment during peak business hours.",
-    highlights: ["10 kW commercial array", "Daytime load offset", "Depreciation benefits"],
-  },
-];
