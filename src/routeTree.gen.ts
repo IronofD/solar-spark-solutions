@@ -16,6 +16,7 @@ import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CommercialRouteImport } from './routes/commercial'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AdimRouteImport } from './routes/adim'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
@@ -57,6 +58,11 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdimRoute = AdimRouteImport.update({
+  id: '/adim',
+  path: '/adim',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -85,6 +91,7 @@ const ApiPublicPhotoSplatRoute = ApiPublicPhotoSplatRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/adim': typeof AdimRoute
   '/auth': typeof AuthRoute
   '/commercial': typeof CommercialRoute
   '/contact': typeof ContactRoute
@@ -98,6 +105,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/adim': typeof AdimRoute
   '/auth': typeof AuthRoute
   '/commercial': typeof CommercialRoute
   '/contact': typeof ContactRoute
@@ -113,6 +121,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about': typeof AboutRoute
+  '/adim': typeof AdimRoute
   '/auth': typeof AuthRoute
   '/commercial': typeof CommercialRoute
   '/contact': typeof ContactRoute
@@ -128,6 +137,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/adim'
     | '/auth'
     | '/commercial'
     | '/contact'
@@ -141,6 +151,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/adim'
     | '/auth'
     | '/commercial'
     | '/contact'
@@ -155,6 +166,7 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/about'
+    | '/adim'
     | '/auth'
     | '/commercial'
     | '/contact'
@@ -170,6 +182,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
+  AdimRoute: typeof AdimRoute
   AuthRoute: typeof AuthRoute
   CommercialRoute: typeof CommercialRoute
   ContactRoute: typeof ContactRoute
@@ -231,6 +244,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/adim': {
+      id: '/adim'
+      path: '/adim'
+      fullPath: '/adim'
+      preLoaderRoute: typeof AdimRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -284,6 +304,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutRoute: AboutRoute,
+  AdimRoute: AdimRoute,
   AuthRoute: AuthRoute,
   CommercialRoute: CommercialRoute,
   ContactRoute: ContactRoute,
