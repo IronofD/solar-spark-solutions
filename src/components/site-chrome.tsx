@@ -94,7 +94,7 @@ export function SiteFooter() {
               Contact
             </div>
             <address className="not-italic text-sm text-muted-foreground">
-              <p>Manakkad, Thodupuzha</p>
+              <p>Thodupuzha, Kerala</p>
               <p>Kerala, 685608</p>
               <p className="mt-2">
                 <a href="tel:+919876543210" className="transition-colors hover:text-navy">
