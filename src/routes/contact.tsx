@@ -1,5 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { useState } from "react";
+import { toast } from "sonner";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { submitInquiry } from "@/lib/inquiries.functions";
+
 
 export const Route = createFileRoute("/contact")({
   component: ContactPage,
@@ -17,7 +22,38 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
+  const send = useServerFn(submitInquiry);
+  const [busy, setBusy] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    setBusy(true);
+    try {
+      const res = await send({
+        data: {
+          name: String(fd.get("name") ?? ""),
+          phone: String(fd.get("phone") ?? ""),
+          email: String(fd.get("email") ?? ""),
+          message: String(fd.get("message") ?? ""),
+        },
+      });
+      if (res.ok) {
+        toast.success("Thanks! We've received your inquiry and will get back to you within 24 hours.");
+        form.reset();
+      } else {
+        toast.error("Something went wrong. Please call or WhatsApp us instead.");
+      }
+    } catch {
+      toast.error("Something went wrong. Please call or WhatsApp us instead.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
   return (
+
     <section className="px-6 py-20 lg:px-8 lg:py-28">
       <div className="mx-auto max-w-3xl text-center">
         <span className="text-sm font-semibold uppercase tracking-wider text-sun">Contact</span>
@@ -50,28 +86,29 @@ function ContactPage() {
         </div>
 
         <div className="lg:col-span-3">
-          <form className="rounded-3xl border border-border bg-card p-6 md:p-8">
+          <form onSubmit={handleSubmit} className="rounded-3xl border border-border bg-card p-6 md:p-8">
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm font-medium">Full Name</label>
-                <input id="name" type="text" placeholder="Your name" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
+                <input id="name" name="name" required maxLength={100} type="text" placeholder="Your name" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
               </div>
               <div className="space-y-2">
                 <label htmlFor="phone" className="text-sm font-medium">Phone Number</label>
-                <input id="phone" type="tel" placeholder="+91 98765 43210" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
+                <input id="phone" name="phone" maxLength={30} type="tel" placeholder="+91 98765 43210" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
               </div>
             </div>
             <div className="mt-4 space-y-2">
               <label htmlFor="email" className="text-sm font-medium">Email</label>
-              <input id="email" type="email" placeholder="you@example.com" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
+              <input id="email" name="email" maxLength={200} type="email" placeholder="you@example.com" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
             </div>
             <div className="mt-4 space-y-2">
               <label htmlFor="message" className="text-sm font-medium">Project Details</label>
-              <textarea id="message" rows={4} placeholder="Tell us about your home, average electricity bill, or any questions..." className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
+              <textarea id="message" name="message" maxLength={2000} rows={4} placeholder="Tell us about your home, average electricity bill, or any questions..." className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
             </div>
-            <button type="submit" className="mt-6 w-full rounded-xl bg-sun px-6 py-4 text-base font-semibold text-foreground shadow-lg shadow-sun/20 hover:bg-sun-dark">
-              Submit Inquiry
+            <button type="submit" disabled={busy} className="mt-6 w-full rounded-xl bg-sun px-6 py-4 text-base font-semibold text-foreground shadow-lg shadow-sun/20 hover:bg-sun-dark disabled:opacity-60">
+              {busy ? "Sending…" : "Submit Inquiry"}
             </button>
+
             <p className="mt-3 text-center text-xs text-muted-foreground">We will get back to you within 24 hours.</p>
           </form>
         </div>
