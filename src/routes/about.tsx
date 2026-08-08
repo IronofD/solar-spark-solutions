@@ -8,9 +8,9 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
   head: () => ({
     meta: [
-      { title: "About Java Solar Solutions — Solar Experts in Manakkad" },
-      { name: "description", content: "Founded in Manakkad, Java Solar Solutions brings global solar technology and local expertise to homes and businesses across Kerala." },
-      { property: "og:title", content: "About Java Solar Solutions — Solar Experts in Manakkad" },
+      { title: "About Java Solar Solutions — Solar Experts in Thodupuzha" },
+      { name: "description", content: "Founded in Thodupuzha, Java Solar Solutions brings global solar technology and local expertise to homes and businesses across Kerala." },
+      { property: "og:title", content: "About Java Solar Solutions — Solar Experts in Thodupuzha" },
       { property: "og:description", content: "Local Kerala solar installers with a 5.02 Google rating and hundreds of installed systems." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/about" },
@@ -27,9 +27,9 @@ function AboutPage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
               <span className="text-sm font-semibold uppercase tracking-wider text-sun">About Us</span>
-              <h1 className="mt-3 font-display text-4xl font-bold text-navy md:text-5xl">Rooted in Manakkad, Powering Kerala</h1>
+              <h1 className="mt-3 font-display text-4xl font-bold text-navy md:text-5xl">Rooted in Thodupuzha, Powering Kerala</h1>
               <p className="mt-6 text-muted-foreground leading-relaxed">
-                Founded with a vision to make renewable energy accessible to every household, Java Solar Solutions combines global solar technology with deep local expertise. We are your neighbors in Manakkad, committed to helping families and businesses across Thodupuzha and Idukki switch to clean, affordable power.
+                Founded with a vision to make renewable energy accessible to every household, Java Solar Solutions combines global solar technology with deep local expertise. We are your neighbors in Thodupuzha, committed to helping families and businesses across Idukki and beyond switch to clean, affordable power.
               </p>
               <p className="mt-4 text-muted-foreground leading-relaxed">
                 Our team manages everything — from consultation, custom system design, and KSEB approvals to professional installation and long-term maintenance — so you can enjoy worry-free energy savings.
