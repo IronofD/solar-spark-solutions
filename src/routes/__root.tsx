@@ -78,16 +78,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Java Solar Solutions — Solar Power in Manakkad, Kerala" },
+      { title: "Java Solar Solutions — Solar Power in Thodupuzha, Kerala" },
       {
         name: "description",
         content:
-          "Java Solar Solutions powers homes and businesses in Manakkad, Thodupuzha with affordable, high-quality solar panel installations. Save on electricity bills and gain energy independence.",
+          "Java Solar Solutions powers homes and businesses in Thodupuzha, Kerala with affordable, high-quality solar panel installations. Save on electricity bills and gain energy independence.",
       },
       { name: "author", content: "Java Solar Solutions" },
       {
         property: "og:title",
-        content: "Java Solar Solutions — Solar Power in Manakkad, Kerala",
+        content: "Java Solar Solutions — Solar Power in Thodupuzha, Kerala",
       },
       {
         property: "og:description",

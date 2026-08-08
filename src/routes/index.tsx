@@ -8,9 +8,9 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Java Solar Solutions — Affordable Solar in Manakkad, Kerala" },
-      { name: "description", content: "Affordable rooftop solar for homes and businesses in Manakkad, Thodupuzha. Free consultation, KSEB paperwork included, 25-year panel warranty." },
-      { property: "og:title", content: "Java Solar Solutions — Affordable Solar in Manakkad, Kerala" },
+      { title: "Java Solar Solutions — Affordable Solar in Thodupuzha, Kerala" },
+      { name: "description", content: "Affordable rooftop solar for homes and businesses in Thodupuzha, Kerala. Free consultation, KSEB paperwork included, 25-year panel warranty." },
+      { property: "og:title", content: "Java Solar Solutions — Affordable Solar in Thodupuzha, Kerala" },
       { property: "og:description", content: "Rooftop solar installations for homes and businesses in Kerala. Start saving from day one." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -32,7 +32,7 @@ function Index() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sun opacity-75" />
                 <span className="relative inline-flex size-2 rounded-full bg-sun" />
               </span>
-              Solar Experts in Manakkad, Kerala
+              Solar Experts in Thodupuzha, Kerala
             </div>
             <h1 className="font-display text-4xl font-bold leading-tight text-navy md:text-5xl lg:text-6xl">
               Power Your Home with the Sun. Save More Every Day.

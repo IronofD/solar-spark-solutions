@@ -54,14 +54,14 @@ export const benefits = [
     icon: BadgeCheck,
     title: "Trusted Local Team",
     description:
-      "Based in Manakkad with a 5.02 Google review rating and a growing list of happy neighbors.",
+      "Based in Thodupuzha with a 5.02 Google review rating and a growing list of happy neighbors.",
   },
 ];
 
 export const testimonials = [
   {
     name: "Rajesh K.",
-    role: "Manakkad Resident",
+    role: "Thodupuzha Resident",
     text: "We haven't paid an electricity bill in six months. The installation was professional and they handled all the KSEB paperwork for us.",
     initials: "RK",
   },
