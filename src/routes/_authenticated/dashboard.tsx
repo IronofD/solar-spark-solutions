@@ -5,7 +5,7 @@ import { Plus, Trash2, Upload, LogOut, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { CASE_STUDY_COLUMNS, emptyCaseStudy, type CaseStudy } from "@/lib/case-studies";
 
-export const Route = createFileRoute("/_authenticated/admin")({
+export const Route = createFileRoute("/_authenticated/dashboard")({
   component: AdminProjectsPage,
   head: () => ({
     meta: [

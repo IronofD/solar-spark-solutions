@@ -34,7 +34,7 @@ function AuthPage() {
         const { error } = await supabase.auth.signUp({
           email,
           password,
-          options: { emailRedirectTo: `${window.location.origin}/admin` },
+          options: { emailRedirectTo: `${window.location.origin}/dashboard` },
         });
         if (error) throw error;
         setMessage("Account created. If email confirmation is required, check your inbox — otherwise sign in now.");
@@ -42,7 +42,7 @@ function AuthPage() {
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
-        navigate({ to: "/admin" });
+        navigate({ to: "/dashboard" });
       }
     } catch (err) {
       setMessage(err instanceof Error ? err.message : "Something went wrong.");
@@ -61,7 +61,7 @@ function AuthPage() {
       return;
     }
     if (result.redirected) return;
-    navigate({ to: "/admin" });
+    navigate({ to: "/dashboard" });
   }
 
   return (

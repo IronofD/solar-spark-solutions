@@ -4,7 +4,7 @@ import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { ensureAdminAccount } from "@/lib/admin-login.functions";
 
-export const Route = createFileRoute("/adim")({
+export const Route = createFileRoute("/admin")({
   component: HiddenAdminLogin,
   head: () => ({
     meta: [
@@ -45,7 +45,7 @@ function HiddenAdminLogin() {
         setError("Invalid username or password.");
         return;
       }
-      navigate({ to: "/admin" });
+      navigate({ to: "/dashboard" });
     } catch {
       setError("Something went wrong. Please try again.");
     } finally {
