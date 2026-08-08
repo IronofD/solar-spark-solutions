@@ -33,7 +33,7 @@ function ContactPage() {
             {[
               { icon: Phone, title: "Phone", body: <a href="tel:+919876543210" className="text-muted-foreground hover:text-navy">+91 98765 43210</a> },
               { icon: Mail, title: "Email", body: <a href="mailto:hello@javasolar.com" className="text-muted-foreground hover:text-navy">hello@javasolar.com</a> },
-              { icon: MapPin, title: "Address", body: <address className="not-italic text-muted-foreground">Manakkad, Thodupuzha<br />Kerala, 685608</address> },
+              { icon: MapPin, title: "Address", body: <address className="not-italic text-muted-foreground">Thodupuzha<br />Kerala, 685608</address> },
               { icon: Clock, title: "Hours", body: <p className="text-muted-foreground">Mon — Sat: 9:00 AM — 6:00 PM<br />Sunday: Closed</p> },
             ].map((item) => (
               <div key={item.title} className="flex items-start gap-4">
