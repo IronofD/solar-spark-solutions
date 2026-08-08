@@ -16,11 +16,11 @@ import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CommercialRouteImport } from './routes/commercial'
 import { Route as AuthRouteImport } from './routes/auth'
-import { Route as AdimRouteImport } from './routes/adim'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as ApiPublicPhotoSplatRouteImport } from './routes/api/public/photo/$'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -58,9 +58,9 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdimRoute = AdimRouteImport.update({
-  id: '/adim',
-  path: '/adim',
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -77,9 +77,9 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const ApiPublicPhotoSplatRoute = ApiPublicPhotoSplatRouteImport.update({
@@ -91,7 +91,7 @@ const ApiPublicPhotoSplatRoute = ApiPublicPhotoSplatRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/adim': typeof AdimRoute
+  '/admin': typeof AdminRoute
   '/auth': typeof AuthRoute
   '/commercial': typeof CommercialRoute
   '/contact': typeof ContactRoute
@@ -99,13 +99,13 @@ export interface FileRoutesByFullPath {
   '/residential': typeof ResidentialRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/admin': typeof AuthenticatedAdminRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
   '/api/public/photo/$': typeof ApiPublicPhotoSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/adim': typeof AdimRoute
+  '/admin': typeof AdminRoute
   '/auth': typeof AuthRoute
   '/commercial': typeof CommercialRoute
   '/contact': typeof ContactRoute
@@ -113,7 +113,7 @@ export interface FileRoutesByTo {
   '/residential': typeof ResidentialRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/admin': typeof AuthenticatedAdminRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
   '/api/public/photo/$': typeof ApiPublicPhotoSplatRoute
 }
 export interface FileRoutesById {
@@ -121,7 +121,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about': typeof AboutRoute
-  '/adim': typeof AdimRoute
+  '/admin': typeof AdminRoute
   '/auth': typeof AuthRoute
   '/commercial': typeof CommercialRoute
   '/contact': typeof ContactRoute
@@ -129,7 +129,7 @@ export interface FileRoutesById {
   '/residential': typeof ResidentialRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/_authenticated/admin': typeof AuthenticatedAdminRoute
+  '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/api/public/photo/$': typeof ApiPublicPhotoSplatRoute
 }
 export interface FileRouteTypes {
@@ -137,7 +137,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
-    | '/adim'
+    | '/admin'
     | '/auth'
     | '/commercial'
     | '/contact'
@@ -145,13 +145,13 @@ export interface FileRouteTypes {
     | '/residential'
     | '/services'
     | '/sitemap.xml'
-    | '/admin'
+    | '/dashboard'
     | '/api/public/photo/$'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
-    | '/adim'
+    | '/admin'
     | '/auth'
     | '/commercial'
     | '/contact'
@@ -159,14 +159,14 @@ export interface FileRouteTypes {
     | '/residential'
     | '/services'
     | '/sitemap.xml'
-    | '/admin'
+    | '/dashboard'
     | '/api/public/photo/$'
   id:
     | '__root__'
     | '/'
     | '/_authenticated'
     | '/about'
-    | '/adim'
+    | '/admin'
     | '/auth'
     | '/commercial'
     | '/contact'
@@ -174,7 +174,7 @@ export interface FileRouteTypes {
     | '/residential'
     | '/services'
     | '/sitemap.xml'
-    | '/_authenticated/admin'
+    | '/_authenticated/dashboard'
     | '/api/public/photo/$'
   fileRoutesById: FileRoutesById
 }
@@ -182,7 +182,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
-  AdimRoute: typeof AdimRoute
+  AdminRoute: typeof AdminRoute
   AuthRoute: typeof AuthRoute
   CommercialRoute: typeof CommercialRoute
   ContactRoute: typeof ContactRoute
@@ -244,11 +244,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/adim': {
-      id: '/adim'
-      path: '/adim'
-      fullPath: '/adim'
-      preLoaderRoute: typeof AdimRouteImport
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -272,11 +272,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/admin': {
-      id: '/_authenticated/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/api/public/photo/$': {
@@ -290,11 +290,11 @@ declare module '@tanstack/react-router' {
 }
 
 interface AuthenticatedRouteRouteChildren {
-  AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
+  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
-  AuthenticatedAdminRoute: AuthenticatedAdminRoute,
+  AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
@@ -304,7 +304,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutRoute: AboutRoute,
-  AdimRoute: AdimRoute,
+  AdminRoute: AdminRoute,
   AuthRoute: AuthRoute,
   CommercialRoute: CommercialRoute,
   ContactRoute: ContactRoute,
@@ -317,3 +317,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

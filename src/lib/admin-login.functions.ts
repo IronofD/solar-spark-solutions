@@ -5,7 +5,7 @@ export const ADMIN_EMAIL = "deon@javasolar.local";
 
 /**
  * Ensures the single shared admin account exists (username: deon).
- * Called from the hidden /adim login page before signing in.
+ * Called from the hidden /admin login page before signing in.
  */
 export const ensureAdminAccount = createServerFn({ method: "POST" })
   .inputValidator((data: { username: string; password: string }) => data)
@@ -26,7 +26,7 @@ export const ensureAdminAccount = createServerFn({ method: "POST" })
         email_confirm: true,
       });
       if (error || !created.user) {
-        console.error("[adim] create admin failed", error?.message);
+        console.error("[admin] create admin failed", error?.message);
         return { ok: false as const };
       }
       userId = created.user.id;
