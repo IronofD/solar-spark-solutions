@@ -86,28 +86,29 @@ function ContactPage() {
         </div>
 
         <div className="lg:col-span-3">
-          <form className="rounded-3xl border border-border bg-card p-6 md:p-8">
+          <form onSubmit={handleSubmit} className="rounded-3xl border border-border bg-card p-6 md:p-8">
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm font-medium">Full Name</label>
-                <input id="name" type="text" placeholder="Your name" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
+                <input id="name" name="name" required maxLength={100} type="text" placeholder="Your name" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
               </div>
               <div className="space-y-2">
                 <label htmlFor="phone" className="text-sm font-medium">Phone Number</label>
-                <input id="phone" type="tel" placeholder="+91 98765 43210" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
+                <input id="phone" name="phone" maxLength={30} type="tel" placeholder="+91 98765 43210" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
               </div>
             </div>
             <div className="mt-4 space-y-2">
               <label htmlFor="email" className="text-sm font-medium">Email</label>
-              <input id="email" type="email" placeholder="you@example.com" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
+              <input id="email" name="email" maxLength={200} type="email" placeholder="you@example.com" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
             </div>
             <div className="mt-4 space-y-2">
               <label htmlFor="message" className="text-sm font-medium">Project Details</label>
-              <textarea id="message" rows={4} placeholder="Tell us about your home, average electricity bill, or any questions..." className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
+              <textarea id="message" name="message" maxLength={2000} rows={4} placeholder="Tell us about your home, average electricity bill, or any questions..." className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
             </div>
-            <button type="submit" className="mt-6 w-full rounded-xl bg-sun px-6 py-4 text-base font-semibold text-foreground shadow-lg shadow-sun/20 hover:bg-sun-dark">
-              Submit Inquiry
+            <button type="submit" disabled={busy} className="mt-6 w-full rounded-xl bg-sun px-6 py-4 text-base font-semibold text-foreground shadow-lg shadow-sun/20 hover:bg-sun-dark disabled:opacity-60">
+              {busy ? "Sending…" : "Submit Inquiry"}
             </button>
+
             <p className="mt-3 text-center text-xs text-muted-foreground">We will get back to you within 24 hours.</p>
           </form>
         </div>
