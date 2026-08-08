@@ -151,6 +151,8 @@ function RootComponent() {
         <SiteFooter />
         <MobileCTA />
       </div>
+      <Toaster />
+
     </QueryClientProvider>
   );
 }
