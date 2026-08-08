@@ -22,7 +22,38 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
+  const send = useServerFn(submitInquiry);
+  const [busy, setBusy] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    setBusy(true);
+    try {
+      const res = await send({
+        data: {
+          name: String(fd.get("name") ?? ""),
+          phone: String(fd.get("phone") ?? ""),
+          email: String(fd.get("email") ?? ""),
+          message: String(fd.get("message") ?? ""),
+        },
+      });
+      if (res.ok) {
+        toast.success("Thanks! We've received your inquiry and will get back to you within 24 hours.");
+        form.reset();
+      } else {
+        toast.error("Something went wrong. Please call or WhatsApp us instead.");
+      }
+    } catch {
+      toast.error("Something went wrong. Please call or WhatsApp us instead.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
   return (
+
     <section className="px-6 py-20 lg:px-8 lg:py-28">
       <div className="mx-auto max-w-3xl text-center">
         <span className="text-sm font-semibold uppercase tracking-wider text-sun">Contact</span>
