@@ -1,0 +1,216 @@
+{
+  "version": 1,
+  "sdk_version": "0.26.1",
+  "path": "/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://bdtppzezsymumhqsdsey.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "java-solar-solutions",
+      "version": "0.1.0",
+      "title": "Java Solar Solutions"
+    },
+    "tools": [
+      {
+        "name": "list_case_studies",
+        "title": "List case studies",
+        "description": "List solar project case studies (before/after photos, system size, savings) for Java Solar Solutions.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "published_only": {
+              "description": "When true, only return published case studies.",
+              "type": "boolean"
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "create_case_study",
+        "title": "Create case study",
+        "description": "Create a new solar project case study. Image URLs are optional and can be added later in the admin dashboard.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "Project title, e.g. 'Thodupuzha Family Home'."
+            },
+            "location": {
+              "type": "string",
+              "description": "Project location."
+            },
+            "customer_type": {
+              "type": "string",
+              "enum": [
+                "home",
+                "business"
+              ],
+              "description": "Customer segment."
+            },
+            "system_size": {
+              "type": "string",
+              "description": "System size, e.g. '5 kW'."
+            },
+            "savings": {
+              "type": "string",
+              "description": "Savings summary, e.g. '92% bill reduction'."
+            },
+            "bill_before": {
+              "type": "string",
+              "description": "Monthly bill before solar."
+            },
+            "bill_after": {
+              "type": "string",
+              "description": "Monthly bill after solar."
+            },
+            "description": {
+              "type": "string",
+              "description": "Short case-study write-up."
+            },
+            "highlights": {
+              "description": "Bullet highlights.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "before_image_url": {
+              "description": "Before photo URL.",
+              "type": "string"
+            },
+            "after_image_url": {
+              "description": "After photo URL.",
+              "type": "string"
+            },
+            "published": {
+              "description": "Publish immediately (default true).",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "title",
+            "location",
+            "customer_type",
+            "system_size",
+            "savings",
+            "bill_before",
+            "bill_after",
+            "description"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "update_case_study",
+        "title": "Update case study",
+        "description": "Update fields on an existing solar project case study, including publish status.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Case study id."
+            },
+            "title": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "customer_type": {
+              "type": "string",
+              "enum": [
+                "home",
+                "business"
+              ]
+            },
+            "system_size": {
+              "type": "string"
+            },
+            "savings": {
+              "type": "string"
+            },
+            "bill_before": {
+              "type": "string"
+            },
+            "bill_after": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "highlights": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "before_image_url": {
+              "type": "string"
+            },
+            "after_image_url": {
+              "type": "string"
+            },
+            "sort_order": {
+              "type": "number"
+            },
+            "published": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_inquiries",
+        "title": "List customer inquiries",
+        "description": "List contact-form inquiries submitted on the Java Solar Solutions website. Admin access only.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "limit": {
+              "description": "Maximum number of inquiries to return (default 20).",
+              "type": "number"
+            }
+          }
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
