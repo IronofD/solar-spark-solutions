@@ -1,0 +1,1 @@
+DELETE FROM public.case_studies WHERE before_image_url LIKE '/project-%';
