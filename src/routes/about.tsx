@@ -49,7 +49,7 @@ function AboutPage() {
               </div>
             </div>
             <div className="relative rounded-3xl bg-sun/10 p-6">
-              <img src={heroImage} alt="Solar panels on a Kerala rooftop" className="aspect-[4/3] w-full rounded-2xl object-cover" width={800} height={600} />
+              <img src={heroImage} alt="Technician installing a rooftop solar panel" className="aspect-[4/3] w-full rounded-2xl object-cover" width={800} height={600} />
             </div>
           </div>
         </div>

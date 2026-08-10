@@ -42,7 +42,7 @@ function ResidentialPage() {
             </div>
           </div>
           <div className="relative">
-            <img src={heroImage} alt="Kerala home with rooftop solar" className="w-full rounded-3xl object-cover shadow-2xl" width={1440} height={900} />
+            <img src={heroImage} alt="Technician installing a rooftop solar panel" className="w-full rounded-3xl object-cover shadow-2xl" width={1440} height={900} />
           </div>
         </div>
       </section>

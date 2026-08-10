@@ -77,7 +77,7 @@ function Index() {
 
           <div className="relative">
             <div className="absolute -inset-4 rounded-[2rem] bg-sun/5" />
-            <img src={heroImage} alt="A Kerala home with solar panels installed on the roof" className="relative z-10 w-full rounded-3xl object-cover shadow-2xl" width={1440} height={900} loading="eager" />
+            <img src={heroImage} alt="Technician installing a rooftop solar panel" className="relative z-10 w-full rounded-3xl object-cover shadow-2xl" width={1440} height={900} loading="eager" />
             <div className="absolute -bottom-6 -left-6 z-20 rounded-2xl border border-border bg-background p-5 shadow-xl">
               <div className="text-3xl font-bold text-navy">₹0</div>
               <p className="text-sm text-muted-foreground">Average electricity bill<br />for many of our customers</p>
