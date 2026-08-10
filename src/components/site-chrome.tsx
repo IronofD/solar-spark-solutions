@@ -71,8 +71,8 @@ export function SiteFooter() {
           <div>
             <Logo />
             <p className="mt-4 max-w-xs text-sm text-muted-foreground">
-              Powering homes and businesses across Thodupuzha, Idukki, and
-              Idukki with affordable, high-quality solar energy solutions.
+              Powering homes and businesses across Kerala with affordable,
+              high-quality solar energy solutions.
             </p>
           </div>
           <div>
