@@ -63,7 +63,7 @@ function Index() {
                   <span>5.0 Google Rating</span>
                   <StarRating />
                 </div>
-                <p className="text-xs text-muted-foreground">Trusted by families across Idukki</p>
+                <p className="text-xs text-muted-foreground">Trusted by families across Kerala</p>
               </div>
             </div>
           </div>
