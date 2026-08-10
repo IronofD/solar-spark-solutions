@@ -42,7 +42,7 @@ function AboutPage() {
                   <div>
                     <div className="font-semibold text-foreground">Visit Our Office</div>
                     <address className="not-italic text-muted-foreground">
-                      Thodupuzha<br />Kerala, 685608
+                      Akkal Building, Manakkad<br />Thodupuzha, Kerala 685608
                     </address>
                   </div>
                 </div>
