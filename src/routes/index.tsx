@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Sun, Shield, BadgeCheck } from "lucide-react";
 import heroImage from "@/assets/hero-solar-home.png";
-import { stats, benefits, services } from "@/lib/site-data";
+import { stats, benefits, services, testimonials } from "@/lib/site-data";
 import { StarRating } from "@/components/site-chrome";
 
 export const Route = createFileRoute("/")({
@@ -54,8 +54,15 @@ function Index() {
             </div>
             <div className="mt-10 flex items-center gap-4">
               <div className="flex -space-x-2">
-                {["bg-navy", "bg-sun", "bg-navy-light"].map((color, i) => (
-                  <div key={i} className={`size-9 rounded-full border-2 border-background ${color}`} />
+                {testimonials.map((t, i) => (
+                  <div
+                    key={t.name}
+                    className={`flex size-9 items-center justify-center rounded-full border-2 border-background text-xs font-semibold ${
+                      i === 1 ? "bg-sun text-foreground" : "bg-navy text-cream"
+                    }`}
+                  >
+                    {t.initials}
+                  </div>
                 ))}
               </div>
               <div>
