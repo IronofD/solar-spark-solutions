@@ -54,7 +54,7 @@ export const benefits = [
     icon: BadgeCheck,
     title: "Trusted Local Team",
     description:
-      "Based in Thodupuzha with a 5.02 Google review rating and a growing list of happy neighbors.",
+      "Based in Thodupuzha with a 5.0 Google review rating and a growing list of happy neighbors.",
   },
 ];
 
@@ -82,7 +82,7 @@ export const testimonials = [
 export const stats = [
   { value: "450+", label: "Homes Powered" },
   { value: "12MW+", label: "Capacity Installed" },
-  { value: "5.02", label: "Google Rating" },
+  { value: "5.0", label: "Google Rating" },
   { value: "25Y", label: "Panel Warranty" },
 ];
 

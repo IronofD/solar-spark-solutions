@@ -60,10 +60,10 @@ function Index() {
               </div>
               <div>
                 <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
-                  <span>5.02 Google Rating</span>
+                  <span>5.0 Google Rating</span>
                   <StarRating />
                 </div>
-                <p className="text-xs text-muted-foreground">Trusted by families across Idukki</p>
+                <p className="text-xs text-muted-foreground">Trusted by families across Kerala</p>
               </div>
             </div>
           </div>
