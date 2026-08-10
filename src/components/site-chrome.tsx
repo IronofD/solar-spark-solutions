@@ -52,7 +52,7 @@ export function SiteHeader() {
           </Link>
         </div>
         <a
-          href="tel:+919876543210"
+          href="tel:+919995527452"
           className="flex size-10 items-center justify-center rounded-full bg-sun text-foreground md:hidden"
           aria-label="Call Java Solar Solutions"
         >
@@ -97,13 +97,13 @@ export function SiteFooter() {
               <p>Thodupuzha, Kerala</p>
               <p>Kerala, 685608</p>
               <p className="mt-2">
-                <a href="tel:+919876543210" className="transition-colors hover:text-navy">
-                  +91 98765 43210
+                <a href="tel:+919995527452" className="transition-colors hover:text-navy">
+                  +91 99955 27452
                 </a>
               </p>
               <p>
-                <a href="mailto:hello@javasolar.com" className="transition-colors hover:text-navy">
-                  hello@javasolar.com
+                <a href="mailto:javasolarsolutaions@gmail.com" className="transition-colors hover:text-navy">
+                  javasolarsolutaions@gmail.com
                 </a>
               </p>
             </address>
@@ -122,14 +122,14 @@ export function MobileCTA() {
     <div className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-background p-4 md:hidden">
       <div className="flex gap-3">
         <a
-          href="tel:+919876543210"
+          href="tel:+919995527452"
           className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-navy px-4 py-3 text-sm font-semibold text-cream shadow-lg"
         >
           <Phone className="size-4" />
           Call
         </a>
         <a
-          href="https://wa.me/919876543210"
+          href="https://wa.me/919995527452"
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-green-600 px-4 py-3 text-sm font-semibold text-white shadow-lg"
@@ -163,7 +163,7 @@ export function SectionCTA({
             <ArrowRight className="size-4" />
           </Link>
           <a
-            href="tel:+919876543210"
+            href="tel:+919995527452"
             className="inline-flex items-center gap-2 rounded-xl border border-cream/30 bg-transparent px-6 py-3 font-semibold text-cream transition-colors hover:bg-cream/10"
           >
             <Phone className="size-4" />
