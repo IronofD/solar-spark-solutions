@@ -94,11 +94,21 @@ export function SiteFooter() {
               Contact
             </div>
             <address className="not-italic text-sm text-muted-foreground">
-              <p>Thodupuzha, Kerala</p>
-              <p>Kerala, 685608</p>
+              <p>Akkal Building, Manakkad</p>
+              <p>Thodupuzha, Kerala 685608</p>
               <p className="mt-2">
                 <a href="tel:+919995527452" className="transition-colors hover:text-navy">
                   +91 99955 27452
+                </a>
+              </p>
+              <p>
+                <a href="tel:+919995547452" className="transition-colors hover:text-navy">
+                  +91 99955 47452
+                </a>
+              </p>
+              <p>
+                <a href="tel:+919995567452" className="transition-colors hover:text-navy">
+                  +91 99955 67452
                 </a>
               </p>
               <p>
