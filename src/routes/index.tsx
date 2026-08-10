@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Sun, Shield, BadgeCheck } from "lucide-react";
 import heroImage from "@/assets/hero-solar-home.png";
-import { stats, benefits, services } from "@/lib/site-data";
+import { stats, benefits, services, testimonials } from "@/lib/site-data";
 import { StarRating } from "@/components/site-chrome";
 
 export const Route = createFileRoute("/")({
