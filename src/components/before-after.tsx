@@ -1,62 +1,18 @@
-import { useState, useRef, useCallback } from "react";
+import { useState } from "react";
 import { Home, Building2, Zap, ArrowRight, Images } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { caseStudiesQueryOptions } from "@/lib/case-studies-query";
 import type { CaseStudy } from "@/lib/case-studies";
 
-export function BeforeAfterSlider({
-  beforeImage,
-  afterImage,
-  beforeAlt,
-  afterAlt,
-}: {
-  beforeImage: string;
-  afterImage: string;
-  beforeAlt: string;
-  afterAlt: string;
-}) {
-  const [position, setPosition] = useState(50);
-  const [isDragging, setIsDragging] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const updatePosition = useCallback((clientX: number) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
-    setPosition((x / rect.width) * 100);
-  }, []);
-
+export function ProjectImage({ image, alt }: { image: string; alt: string }) {
   return (
-    <div
-      ref={containerRef}
-      className="relative aspect-[4/3] cursor-ew-resize overflow-hidden rounded-2xl bg-muted select-none"
-      onMouseDown={(e) => { setIsDragging(true); updatePosition(e.clientX); }}
-      onMouseMove={(e) => { if (isDragging) updatePosition(e.clientX); }}
-      onMouseUp={() => setIsDragging(false)}
-      onMouseLeave={() => setIsDragging(false)}
-      onTouchStart={(e) => { setIsDragging(true); updatePosition(e.touches[0].clientX); }}
-      onTouchMove={(e) => { if (isDragging) updatePosition(e.touches[0].clientX); }}
-      onTouchEnd={() => setIsDragging(false)}
-      onKeyDown={(e) => {
-        if (e.key === "ArrowLeft") setPosition((p) => Math.max(0, p - 5));
-        if (e.key === "ArrowRight") setPosition((p) => Math.min(100, p + 5));
-      }}
-      role="slider"
-      aria-label="Before and after comparison"
-      aria-valuemin={0}
-      aria-valuemax={100}
-      aria-valuenow={Math.round(position)}
-      tabIndex={0}
-    >
-      <img src={beforeImage} alt={beforeAlt} className="absolute inset-0 h-full w-full object-cover" width={1024} height={768} loading="lazy" draggable={false} />
-      <img src={afterImage} alt={afterAlt} className="absolute inset-0 h-full w-full object-cover" style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }} width={1024} height={768} loading="lazy" draggable={false} />
-      <div className="pointer-events-none absolute inset-y-0 w-0.5 bg-white shadow-[0_0_10px_rgba(0,0,0,0.2)]" style={{ left: `${position}%`, transform: "translateX(-50%)" }} />
-      <div className="pointer-events-none absolute top-1/2 flex size-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-sun text-white shadow-lg" style={{ left: `${position}%` }}>
-        <ArrowRight className="size-4" />
-      </div>
-      <span className="absolute bottom-3 left-3 rounded-md bg-black/60 px-2 py-1 text-xs font-semibold text-white">Before</span>
-      <span className="absolute bottom-3 right-3 rounded-md bg-sun/90 px-2 py-1 text-xs font-semibold text-foreground">After</span>
+    <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-muted">
+      {image ? (
+        <img src={image} alt={alt} className="h-full w-full object-cover" width={1024} height={768} loading="lazy" />
+      ) : (
+        <div className="flex h-full w-full items-center justify-center text-sm text-muted-foreground">Photo coming soon</div>
+      )}
     </div>
   );
 }
@@ -64,11 +20,9 @@ export function BeforeAfterSlider({
 export function ProjectCard({ project }: { project: CaseStudy }) {
   return (
     <article className="overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all hover:shadow-lg">
-      <BeforeAfterSlider
-        beforeImage={project.before_image_url}
-        afterImage={project.after_image_url}
-        beforeAlt={`Before solar installation — ${project.title}`}
-        afterAlt={`After solar installation — ${project.title}`}
+      <ProjectImage
+        image={project.after_image_url}
+        alt={`Completed solar installation — ${project.title}`}
       />
       <div className="p-6 md:p-8">
         <div className="flex items-center justify-between gap-3">
