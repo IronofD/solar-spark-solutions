@@ -51,7 +51,7 @@ function AdminProjectsPage() {
     },
   });
 
-  async function uploadPhoto(file: File, field: "before_image_url" | "after_image_url") {
+  async function uploadPhoto(file: File, field: "after_image_url") {
     if (!draft) return;
     setStatus("Uploading photo…");
     const ext = file.name.split(".").pop()?.toLowerCase() ?? "jpg";
@@ -141,7 +141,7 @@ function AdminProjectsPage() {
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <h1 className="font-display text-3xl font-bold text-navy">Project Case Studies</h1>
-            <p className="mt-1 text-sm text-muted-foreground">Add real projects with before/after photos and system stats.</p>
+            <p className="mt-1 text-sm text-muted-foreground">Add real projects with installation photos and system stats.</p>
           </div>
           <div className="flex gap-2">
             <button
@@ -202,12 +202,7 @@ function AdminProjectsPage() {
 
             <div className="mt-6 grid gap-6 sm:grid-cols-2">
               <PhotoField
-                label="Before photo" url={draft.before_image_url}
-                onFile={(f) => uploadPhoto(f, "before_image_url")}
-                onClear={() => setDraft({ ...draft, before_image_url: "" })}
-              />
-              <PhotoField
-                label="After photo" url={draft.after_image_url}
+                label="Project photo (after installation)" url={draft.after_image_url}
                 onFile={(f) => uploadPhoto(f, "after_image_url")}
                 onClear={() => setDraft({ ...draft, after_image_url: "" })}
               />
