@@ -11,7 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { SiteHeader, SiteFooter, MobileCTA } from "../components/site-chrome";
+import { SiteHeader, SiteFooter, MobileCTA, FloatingContact } from "../components/site-chrome";
 import { Toaster } from "../components/ui/sonner";
 
 
@@ -150,6 +150,7 @@ function RootComponent() {
         <Outlet />
         <SiteFooter />
         <MobileCTA />
+        <FloatingContact />
       </div>
       <Toaster />
 
