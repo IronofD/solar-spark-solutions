@@ -44,14 +44,35 @@ export const submitInquiry = createServerFn({ method: "POST" })
       name: data.name,
       phone: data.phone || null,
       email: data.email || null,
+      location: data.location || null,
+      service_type: data.service_type || null,
+      monthly_bill: data.monthly_bill || null,
       message: data.message || null,
     };
 
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { error } = await supabaseAdmin.from("inquiries").insert(row);
+    const { error } = await supabaseAdmin.from("inquiries").insert(row as never);
     if (error) console.error("[inquiries] insert failed", error.message);
 
-    const external = await forwardToExternal(row);
+    // External project may not have the newer columns — fold them into the message.
+    const details = [
+      data.location ? `Location: ${data.location}` : "",
+      data.service_type ? `Service: ${data.service_type}` : "",
+      data.monthly_bill ? `Monthly bill: ${data.monthly_bill}` : "",
+      data.message ? `Message: ${data.message}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    let external = await forwardToExternal(row);
+    if (!external) {
+      external = await forwardToExternal({
+        name: data.name,
+        phone: data.phone || null,
+        email: data.email || null,
+        message: details || null,
+      });
+    }
 
     if (error && !external) return { ok: false as const };
     return { ok: true as const };
