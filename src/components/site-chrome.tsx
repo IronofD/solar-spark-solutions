@@ -50,6 +50,26 @@ export function SiteHeader() {
             Get Free Quote
             <ArrowRight className="size-4" />
           </Link>
+          <div className="hidden items-center gap-2 lg:flex">
+            <a
+              href="tel:+919995527452"
+              className="inline-flex items-center gap-2 rounded-full border border-navy/20 px-4 py-2 text-sm font-medium text-navy transition-colors hover:bg-navy/5"
+              aria-label="Call Java Solar Solutions"
+            >
+              <Phone className="size-4" />
+              +91 99955 27452
+            </a>
+            <a
+              href="https://wa.me/919995527452"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-green-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-green-700"
+              aria-label="WhatsApp Java Solar Solutions"
+            >
+              <MessageCircle className="size-4" />
+              WhatsApp
+            </a>
+          </div>
         </div>
         <a
           href="tel:+919995527452"
