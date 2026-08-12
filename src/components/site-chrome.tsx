@@ -50,26 +50,6 @@ export function SiteHeader() {
             Get Free Quote
             <ArrowRight className="size-4" />
           </Link>
-          <div className="hidden items-center gap-2 lg:flex">
-            <a
-              href="tel:+919995527452"
-              className="inline-flex items-center gap-2 rounded-full border border-navy/20 px-4 py-2 text-sm font-medium text-navy transition-colors hover:bg-navy/5"
-              aria-label="Call Java Solar Solutions"
-            >
-              <Phone className="size-4" />
-              +91 99955 27452
-            </a>
-            <a
-              href="https://wa.me/919995527452"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-green-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-green-700"
-              aria-label="WhatsApp Java Solar Solutions"
-            >
-              <MessageCircle className="size-4" />
-              WhatsApp
-            </a>
-          </div>
         </div>
         <a
           href="tel:+919995527452"
@@ -168,6 +148,29 @@ export function MobileCTA() {
           WhatsApp
         </a>
       </div>
+    </div>
+  );
+}
+
+export function FloatingContact() {
+  return (
+    <div className="fixed bottom-6 right-6 z-50 hidden flex-col gap-3 md:flex">
+      <a
+        href="tel:+919995527452"
+        className="flex size-12 items-center justify-center rounded-full bg-navy text-cream shadow-lg shadow-navy/30 transition-transform hover:scale-110"
+        aria-label="Call Java Solar Solutions"
+      >
+        <Phone className="size-5" />
+      </a>
+      <a
+        href="https://wa.me/919995527452"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex size-12 items-center justify-center rounded-full bg-green-600 text-white shadow-lg shadow-green-600/30 transition-transform hover:scale-110"
+        aria-label="WhatsApp Java Solar Solutions"
+      >
+        <MessageCircle className="size-5" />
+      </a>
     </div>
   );
 }
