@@ -36,6 +36,9 @@ function ContactPage() {
           name: String(fd.get("name") ?? ""),
           phone: String(fd.get("phone") ?? ""),
           email: String(fd.get("email") ?? ""),
+          location: String(fd.get("location") ?? ""),
+          service_type: String(fd.get("service_type") ?? ""),
+          monthly_bill: String(fd.get("monthly_bill") ?? ""),
           message: String(fd.get("message") ?? ""),
         },
       });
