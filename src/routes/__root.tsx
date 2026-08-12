@@ -150,6 +150,7 @@ function RootComponent() {
         <Outlet />
         <SiteFooter />
         <MobileCTA />
+        <FloatingContact />
       </div>
       <Toaster />
 
