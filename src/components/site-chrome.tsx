@@ -140,8 +140,6 @@ export function MobileCTA() {
         </a>
         <a
           href="https://wa.me/919995527452"
-          target="_blank"
-          rel="noopener noreferrer"
           className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-green-600 px-4 py-3 text-sm font-semibold text-white shadow-lg"
         >
           <MessageCircle className="size-4" />
@@ -164,8 +162,6 @@ export function FloatingContact() {
       </a>
       <a
         href="https://wa.me/919995527452"
-        target="_blank"
-        rel="noopener noreferrer"
         className="flex size-12 items-center justify-center rounded-full bg-green-600 text-white shadow-lg shadow-green-600/30 transition-transform hover:scale-110"
         aria-label="WhatsApp Java Solar Solutions"
       >
