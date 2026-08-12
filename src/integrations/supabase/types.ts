@@ -76,25 +76,34 @@ export type Database = {
           created_at: string
           email: string | null
           id: string
+          location: string | null
           message: string | null
+          monthly_bill: string | null
           name: string
           phone: string | null
+          service_type: string | null
         }
         Insert: {
           created_at?: string
           email?: string | null
           id?: string
+          location?: string | null
           message?: string | null
+          monthly_bill?: string | null
           name: string
           phone?: string | null
+          service_type?: string | null
         }
         Update: {
           created_at?: string
           email?: string | null
           id?: string
+          location?: string | null
           message?: string | null
+          monthly_bill?: string | null
           name?: string
           phone?: string | null
+          service_type?: string | null
         }
         Relationships: []
       }
