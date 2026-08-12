@@ -5,6 +5,9 @@ const schema = z.object({
   name: z.string().trim().min(1).max(100),
   phone: z.string().trim().max(30).optional().default(""),
   email: z.string().trim().email().max(200).optional().or(z.literal("")),
+  location: z.string().trim().max(150).optional().default(""),
+  service_type: z.string().trim().max(50).optional().default(""),
+  monthly_bill: z.string().trim().max(50).optional().default(""),
   message: z.string().trim().max(2000).optional().default(""),
 });
 
