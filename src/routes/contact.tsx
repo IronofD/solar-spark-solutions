@@ -100,9 +100,36 @@ function ContactPage() {
                 <input id="phone" name="phone" maxLength={30} type="tel" placeholder="+91 99955 27452" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
               </div>
             </div>
-            <div className="mt-4 space-y-2">
-              <label htmlFor="email" className="text-sm font-medium">Email</label>
-              <input id="email" name="email" maxLength={200} type="email" placeholder="you@example.com" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              <div className="space-y-2">
+                <label htmlFor="email" className="text-sm font-medium">Email</label>
+                <input id="email" name="email" maxLength={200} type="email" placeholder="you@example.com" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="location" className="text-sm font-medium">Location</label>
+                <input id="location" name="location" required maxLength={150} type="text" placeholder="Town / district in Kerala" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
+              </div>
+            </div>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              <div className="space-y-2">
+                <label htmlFor="service_type" className="text-sm font-medium">Service</label>
+                <select id="service_type" name="service_type" required defaultValue="" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20">
+                  <option value="" disabled>Choose a service</option>
+                  <option value="Residential Solar">Residential Solar</option>
+                  <option value="Commercial Solar">Commercial Solar</option>
+                </select>
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="monthly_bill" className="text-sm font-medium">Average Monthly Electricity Bill</label>
+                <select id="monthly_bill" name="monthly_bill" required defaultValue="" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20">
+                  <option value="" disabled>Select a range</option>
+                  <option value="Below ₹1,000">Below ₹1,000</option>
+                  <option value="₹1,000 – ₹2,500">₹1,000 – ₹2,500</option>
+                  <option value="₹2,500 – ₹5,000">₹2,500 – ₹5,000</option>
+                  <option value="₹5,000 – ₹10,000">₹5,000 – ₹10,000</option>
+                  <option value="Above ₹10,000">Above ₹10,000</option>
+                </select>
+              </div>
             </div>
             <div className="mt-4 space-y-2">
               <label htmlFor="message" className="text-sm font-medium">Project Details</label>
