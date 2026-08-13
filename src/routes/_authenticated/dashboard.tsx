@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Plus, Trash2, Upload, LogOut, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { CASE_STUDY_COLUMNS, emptyCaseStudy, type CaseStudy } from "@/lib/case-studies";
+import { AdminInquiries } from "@/components/admin-inquiries";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
   component: AdminProjectsPage,
@@ -244,7 +245,10 @@ function AdminProjectsPage() {
             </div>
           ))}
         </div>
+
+        <AdminInquiries />
       </div>
+
     </section>
   );
 }
