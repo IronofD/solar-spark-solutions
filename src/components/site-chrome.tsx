@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Phone, MessageCircle, ArrowRight, Star } from "lucide-react";
+import { Phone, ArrowRight, Star } from "lucide-react";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import logoAsset from "@/assets/java-solar-logo.png";
 import { navLinks } from "@/lib/site-data";
 
@@ -142,7 +143,7 @@ export function MobileCTA() {
           href="https://wa.me/919995527452"
           className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-green-600 px-4 py-3 text-sm font-semibold text-white shadow-lg"
         >
-          <MessageCircle className="size-4" />
+          <WhatsAppIcon className="size-4" />
           WhatsApp
         </a>
       </div>
@@ -165,7 +166,7 @@ export function FloatingContact() {
         className="flex size-12 items-center justify-center rounded-full bg-green-600 text-white shadow-lg shadow-green-600/30 transition-transform hover:scale-110"
         aria-label="WhatsApp Java Solar Solutions"
       >
-        <MessageCircle className="size-5" />
+        <WhatsAppIcon className="size-5" />
       </a>
     </div>
   );

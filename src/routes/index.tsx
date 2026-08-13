@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Sun, Shield, BadgeCheck } from "lucide-react";
 import heroImage from "@/assets/hero-solar-home.png";
+import { CountUp } from "@/components/count-up";
 import { stats, benefits, services, testimonials } from "@/lib/site-data";
 import { StarRating } from "@/components/site-chrome";
 
@@ -91,7 +92,7 @@ function Index() {
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 md:grid-cols-4">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="font-display text-3xl font-bold text-navy md:text-4xl">{stat.value}</div>
+              <div className="font-display text-3xl font-bold text-navy md:text-4xl"><CountUp value={stat.value} /></div>
               <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">{stat.label}</div>
             </div>
           ))}
