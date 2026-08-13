@@ -245,7 +245,10 @@ function AdminProjectsPage() {
             </div>
           ))}
         </div>
+
+        <AdminInquiries />
       </div>
+
     </section>
   );
 }
