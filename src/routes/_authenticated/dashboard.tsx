@@ -129,7 +129,7 @@ function AdminProjectsPage() {
   if (isAdmin === false) {
     return (
       <section className="px-6 py-24 text-center">
-        <h1 className="font-display text-2xl font-bold text-navy">No admin access</h1>
+        <h1 className="font-display text-2xl font-bold text-foreground">No admin access</h1>
         <p className="mt-3 text-muted-foreground">This account isn't an administrator for the project gallery.</p>
         <button onClick={signOut} className="mt-6 rounded-xl bg-navy px-6 py-3 font-semibold text-cream">Sign out</button>
       </section>
@@ -141,7 +141,7 @@ function AdminProjectsPage() {
       <div className="mx-auto max-w-5xl">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <h1 className="font-display text-3xl font-bold text-navy">Project Case Studies</h1>
+            <h1 className="font-display text-3xl font-bold text-foreground">Project Case Studies</h1>
             <p className="mt-1 text-sm text-muted-foreground">Add real projects with installation photos and system stats.</p>
           </div>
           <div className="flex gap-2">
@@ -161,7 +161,7 @@ function AdminProjectsPage() {
 
         {draft && (
           <div className="mt-8 rounded-3xl border border-border bg-card p-6 md:p-8">
-            <h2 className="font-display text-xl font-semibold text-navy">{draft.id ? "Edit case study" : "New case study"}</h2>
+            <h2 className="font-display text-xl font-semibold text-foreground">{draft.id ? "Edit case study" : "New case study"}</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               <Field label="Title" value={draft.title} onChange={(v) => setDraft({ ...draft, title: v })} />
               <Field label="Location" value={draft.location} onChange={(v) => setDraft({ ...draft, location: v })} />

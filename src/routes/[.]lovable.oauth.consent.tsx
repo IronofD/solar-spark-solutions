@@ -69,7 +69,7 @@ function Consent() {
   return (
     <section className="px-6 py-20 lg:py-28">
       <div className="mx-auto max-w-md rounded-3xl border border-border bg-card p-8">
-        <h1 className="font-display text-2xl font-bold text-navy">
+        <h1 className="font-display text-2xl font-bold text-foreground">
           Connect {clientName} to your account
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">

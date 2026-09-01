@@ -24,7 +24,7 @@ function ServicesPage() {
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-3xl text-center">
             <span className="text-sm font-semibold uppercase tracking-wider text-sun">Services</span>
-            <h1 className="mt-3 font-display text-4xl font-bold text-navy md:text-5xl">Complete Solar Solutions for Kerala</h1>
+            <h1 className="mt-3 font-display text-4xl font-bold text-foreground md:text-5xl">Complete Solar Solutions for Kerala</h1>
             <p className="mt-4 text-lg text-muted-foreground">
               From consultation and system design to installation, KSEB approvals, and long-term maintenance — we handle the entire journey to solar.
             </p>
@@ -51,7 +51,7 @@ function ServicesPage() {
             ].map((step) => (
               <div key={step.step} className="rounded-2xl border border-border bg-muted/30 p-6">
                 <div className="font-display text-3xl font-bold text-sun">{step.step}</div>
-                <h3 className="mt-2 font-semibold text-navy">{step.title}</h3>
+                <h3 className="mt-2 font-semibold text-foreground">{step.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{step.body}</p>
               </div>
             ))}

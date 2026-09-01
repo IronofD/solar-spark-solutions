@@ -60,7 +60,7 @@ function ContactPage() {
     <section className="px-6 py-20 lg:px-8 lg:py-28">
       <div className="mx-auto max-w-3xl text-center">
         <span className="text-sm font-semibold uppercase tracking-wider text-sun">Contact</span>
-        <h1 className="mt-3 font-display text-4xl font-bold text-navy md:text-5xl">Ready to Switch to Solar?</h1>
+        <h1 className="mt-3 font-display text-4xl font-bold text-foreground md:text-5xl">Ready to Switch to Solar?</h1>
         <p className="mt-4 text-muted-foreground">
           Contact Java Solar Solutions for a free site inspection and savings report tailored to your home or business.
         </p>
@@ -70,8 +70,8 @@ function ContactPage() {
         <div className="lg:col-span-2">
           <div className="space-y-6">
             {[
-              { icon: Phone, title: "Phone", body: <p className="text-muted-foreground"><a href="tel:+919995527452" className="hover:text-navy">+91 99955 27452</a><br /><a href="tel:+919995547452" className="hover:text-navy">+91 99955 47452</a><br /><a href="tel:+919995567452" className="hover:text-navy">+91 99955 67452</a></p> },
-              { icon: Mail, title: "Email", body: <a href="mailto:javasolarsolutaions@gmail.com" className="text-muted-foreground hover:text-navy">javasolarsolutaions@gmail.com</a> },
+              { icon: Phone, title: "Phone", body: <p className="text-muted-foreground"><a href="tel:+919995527452" className="hover:text-accent">+91 99955 27452</a><br /><a href="tel:+919995547452" className="hover:text-accent">+91 99955 47452</a><br /><a href="tel:+919995567452" className="hover:text-accent">+91 99955 67452</a></p> },
+              { icon: Mail, title: "Email", body: <a href="mailto:javasolarsolutaions@gmail.com" className="text-muted-foreground hover:text-accent">javasolarsolutaions@gmail.com</a> },
               { icon: MapPin, title: "Address", body: <address className="not-italic text-muted-foreground">Akkal Building, Manakkad<br />Thodupuzha, Kerala 685608</address> },
               { icon: Clock, title: "Hours", body: <p className="text-muted-foreground">Mon — Sat: 9:00 AM — 6:00 PM<br />Sunday: Closed</p> },
             ].map((item) => (

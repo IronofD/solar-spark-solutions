@@ -25,7 +25,7 @@ function CommercialPage() {
           <span className="inline-flex items-center gap-2 rounded-full bg-sun/10 px-3 py-1 text-sm font-semibold text-sun-dark">
             <Building2 className="size-4" /> For Businesses
           </span>
-          <h1 className="mt-4 font-display text-4xl font-bold text-navy md:text-5xl">Commercial Solar That Pays for Itself</h1>
+          <h1 className="mt-4 font-display text-4xl font-bold text-foreground md:text-5xl">Commercial Solar That Pays for Itself</h1>
           <p className="mt-6 text-lg text-muted-foreground">
             High-capacity solar installations for shops, offices, hospitals, resorts, and industrial units across Thodupuzha and Kerala. Offset daytime loads, gain depreciation benefits, and lock in stable energy costs.
           </p>
@@ -45,10 +45,10 @@ function CommercialPage() {
             { icon: Building2, title: "Turnkey Delivery", body: "Design, DISCOM liaison, installation, and O&M under one roof." },
           ].map((f) => (
             <div key={f.title} className="rounded-2xl border border-border bg-card p-6">
-              <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-navy/10 text-navy">
+              <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-navy/10 text-foreground">
                 <f.icon className="size-6" strokeWidth={1.5} />
               </div>
-              <h3 className="font-display text-lg font-semibold text-navy">{f.title}</h3>
+              <h3 className="font-display text-lg font-semibold text-foreground">{f.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{f.body}</p>
             </div>
           ))}
@@ -57,7 +57,7 @@ function CommercialPage() {
 
       <section className="bg-muted/30 px-6 py-20 lg:px-8">
         <div className="mx-auto max-w-5xl">
-          <h2 className="text-center font-display text-3xl font-bold text-navy md:text-4xl">Industries We Serve</h2>
+          <h2 className="text-center font-display text-3xl font-bold text-foreground md:text-4xl">Industries We Serve</h2>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
             {["Retail & Showrooms", "Hospitals & Clinics", "Hotels & Resorts", "Educational Institutions", "Manufacturing Units", "Offices & Co-working"].map((ind) => (
               <div key={ind} className="rounded-xl border border-border bg-card p-4 text-center font-medium text-foreground">

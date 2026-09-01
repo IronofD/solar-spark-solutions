@@ -27,7 +27,7 @@ function AboutPage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
               <span className="text-sm font-semibold uppercase tracking-wider text-sun">About Us</span>
-              <h1 className="mt-3 font-display text-4xl font-bold text-navy md:text-5xl">Rooted in Thodupuzha, Powering Kerala</h1>
+              <h1 className="mt-3 font-display text-4xl font-bold text-foreground md:text-5xl">Rooted in Thodupuzha, Powering Kerala</h1>
               <p className="mt-6 text-muted-foreground leading-relaxed">
                 Founded with a vision to make renewable energy accessible to every household, Java Solar Solutions combines global solar technology with deep local expertise. We are your neighbors in Thodupuzha, committed to helping families and businesses across Kerala switch to clean, affordable power.
               </p>
@@ -59,7 +59,7 @@ function AboutPage() {
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 md:grid-cols-4">
           {stats.map((s) => (
             <div key={s.label} className="text-center">
-              <div className="font-display text-3xl font-bold text-navy md:text-4xl">{s.value}</div>
+              <div className="font-display text-3xl font-bold text-foreground md:text-4xl">{s.value}</div>
               <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">{s.label}</div>
             </div>
           ))}
@@ -69,7 +69,7 @@ function AboutPage() {
       <section className="px-6 py-20 lg:px-8 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-display text-3xl font-bold text-navy md:text-4xl">Trusted by Your Neighbors</h2>
+            <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">Trusted by Your Neighbors</h2>
             <p className="mt-4 text-muted-foreground">See what people in Thodupuzha say about their solar experience with us.</p>
           </div>
           <div className="mt-14 grid gap-6 md:grid-cols-3">
@@ -78,7 +78,7 @@ function AboutPage() {
                 <div className="mb-4"><StarRating /></div>
                 <p className="mb-6 text-foreground leading-relaxed">{review.text}</p>
                 <div className="flex items-center gap-3">
-                  <div className="flex size-10 items-center justify-center rounded-full bg-navy/10 font-semibold text-navy">{review.initials}</div>
+                  <div className="flex size-10 items-center justify-center rounded-full bg-navy/10 font-semibold text-foreground">{review.initials}</div>
                   <div>
                     <div className="font-semibold text-foreground">{review.name}</div>
                     <div className="text-xs text-muted-foreground">{review.role}</div>

@@ -56,7 +56,7 @@ function HiddenAdminLogin() {
   return (
     <section className="px-6 py-20 lg:py-28">
       <div className="mx-auto max-w-sm rounded-3xl border border-border bg-card p-8">
-        <h1 className="font-display text-2xl font-bold text-navy">Staff Access</h1>
+        <h1 className="font-display text-2xl font-bold text-foreground">Staff Access</h1>
         <p className="mt-2 text-sm text-muted-foreground">
           Sign in to edit project case studies and upload photos.
         </p>
