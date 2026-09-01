@@ -110,6 +110,15 @@
   --border: oklch(0.31 0.05 145);
   --input: oklch(0.31 0.05 145);
   --ring: oklch(0.819 0.198 124);
+
+  /* Brand tokens tuned for dark surfaces */
+  --navy: oklch(0.42 0.13 145);
+  --navy-light: oklch(0.55 0.16 142);
+  --navy-dark: oklch(0.26 0.07 145);
+  --sun: oklch(0.819 0.198 124);
+  --sun-light: oklch(0.89 0.15 124);
+  --sun-dark: oklch(0.697 0.197 142);
+  --cream: oklch(0.97 0.012 124);
 }
 
 @layer base {

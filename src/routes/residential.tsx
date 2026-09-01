@@ -27,7 +27,7 @@ function ResidentialPage() {
             <span className="inline-flex items-center gap-2 rounded-full bg-sun/10 px-3 py-1 text-sm font-semibold text-sun-dark">
               <Home className="size-4" /> For Homeowners
             </span>
-            <h1 className="mt-4 font-display text-4xl font-bold text-navy md:text-5xl">Rooftop Solar Built for Kerala Homes</h1>
+            <h1 className="mt-4 font-display text-4xl font-bold text-foreground md:text-5xl">Rooftop Solar Built for Kerala Homes</h1>
             <p className="mt-6 text-lg text-muted-foreground">
               A 3–5 kW rooftop system can eliminate almost your entire KSEB bill. We design, install, and maintain solar systems tailored to your roof, load, and budget.
             </p>
@@ -49,7 +49,7 @@ function ResidentialPage() {
 
       <section className="border-y border-border bg-muted/30 px-6 py-20 lg:px-8">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-center font-display text-3xl font-bold text-navy md:text-4xl">Why Homeowners Choose Solar</h2>
+          <h2 className="text-center font-display text-3xl font-bold text-foreground md:text-4xl">Why Homeowners Choose Solar</h2>
           <div className="mt-14 grid gap-8 md:grid-cols-3">
             {[
               { icon: TrendingDown, title: "Slash Your Bill by 80–95%", body: "Most homes see monthly KSEB bills drop from thousands to under ₹500." },
@@ -60,7 +60,7 @@ function ResidentialPage() {
                 <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-sun/10 text-sun">
                   <f.icon className="size-6" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-display text-lg font-semibold text-navy">{f.title}</h3>
+                <h3 className="font-display text-lg font-semibold text-foreground">{f.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.body}</p>
               </div>
             ))}

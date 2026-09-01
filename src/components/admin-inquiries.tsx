@@ -55,7 +55,7 @@ export function AdminInquiries() {
     <div className="mt-16">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h2 className="font-display text-2xl font-bold text-navy">Customer Inquiries</h2>
+          <h2 className="font-display text-2xl font-bold text-foreground">Customer Inquiries</h2>
           <p className="mt-1 text-sm text-muted-foreground">
             {isLoading ? "Loading…" : `${filtered.length} of ${inquiries.length} inquiries`}
           </p>
@@ -119,12 +119,12 @@ export function AdminInquiries() {
                 <h3 className="font-semibold text-foreground">{i.name}</h3>
                 <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground">
                   {i.phone && (
-                    <a href={`tel:${i.phone}`} className="inline-flex items-center gap-1 hover:text-navy">
+                    <a href={`tel:${i.phone}`} className="inline-flex items-center gap-1 hover:text-accent">
                       <Phone className="size-3" /> {i.phone}
                     </a>
                   )}
                   {i.email && (
-                    <a href={`mailto:${i.email}`} className="inline-flex items-center gap-1 hover:text-navy">
+                    <a href={`mailto:${i.email}`} className="inline-flex items-center gap-1 hover:text-accent">
                       <Mail className="size-3" /> {i.email}
                     </a>
                   )}
@@ -142,7 +142,7 @@ export function AdminInquiries() {
 
             <div className="mt-3 flex flex-wrap gap-2">
               {i.service_type && (
-                <span className="rounded-full bg-navy/10 px-3 py-1 text-xs font-semibold text-navy">{i.service_type}</span>
+                <span className="rounded-full bg-navy/10 px-3 py-1 text-xs font-semibold text-foreground">{i.service_type}</span>
               )}
               {i.monthly_bill && (
                 <span className="rounded-full bg-sun/15 px-3 py-1 text-xs font-semibold text-foreground">

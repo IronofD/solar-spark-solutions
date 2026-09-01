@@ -35,7 +35,7 @@ function Index() {
               </span>
               Solar Experts in Thodupuzha, Kerala
             </div>
-            <h1 className="font-display text-4xl font-bold leading-tight text-navy md:text-5xl lg:text-6xl">
+            <h1 className="font-display text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-6xl">
               Power Your Home with the Sun. Save More Every Day.
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
@@ -59,7 +59,7 @@ function Index() {
                   <div
                     key={t.name}
                     className={`flex size-9 items-center justify-center rounded-full border-2 border-background text-xs font-semibold ${
-                      i === 1 ? "bg-sun text-foreground" : "bg-navy text-cream"
+                      i === 1 ? "bg-sun text-background" : "bg-primary text-primary-foreground"
                     }`}
                   >
                     {t.initials}
@@ -80,7 +80,7 @@ function Index() {
             <div className="absolute -inset-4 rounded-[2rem] bg-sun/5" />
             <img src={heroImage} alt="Technician installing a rooftop solar panel" className="relative z-10 w-full rounded-3xl object-cover shadow-2xl" width={1440} height={900} loading="eager" />
             <div className="absolute -bottom-6 -left-6 z-20 rounded-2xl border border-border bg-background p-5 shadow-xl">
-              <div className="text-3xl font-bold text-navy">₹0</div>
+              <div className="text-3xl font-bold text-foreground">₹0</div>
               <p className="text-sm text-muted-foreground">Average electricity bill<br />for many of our customers</p>
             </div>
           </div>
@@ -92,7 +92,7 @@ function Index() {
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 md:grid-cols-4">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="font-display text-3xl font-bold text-navy md:text-4xl"><CountUp value={stat.value} /></div>
+              <div className="font-display text-3xl font-bold text-foreground md:text-4xl"><CountUp value={stat.value} /></div>
               <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">{stat.label}</div>
             </div>
           ))}
@@ -104,7 +104,7 @@ function Index() {
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-2xl text-center">
             <span className="text-sm font-semibold uppercase tracking-wider text-sun">What We Offer</span>
-            <h2 className="mt-3 font-display text-3xl font-bold text-navy md:text-4xl">Complete Solar Solutions</h2>
+            <h2 className="mt-3 font-display text-3xl font-bold text-foreground md:text-4xl">Complete Solar Solutions</h2>
             <p className="mt-4 text-muted-foreground">End-to-end solar services designed for Kerala homes and businesses.</p>
           </div>
           <div className="mt-14 grid gap-8 md:grid-cols-3">
@@ -144,7 +144,7 @@ function Index() {
             </div>
             <div className="grid gap-6 sm:grid-cols-2">
               {benefits.map((benefit) => (
-                <div key={benefit.title} className="rounded-2xl border border-cream/10 bg-cream/5 p-6">
+                <div key={benefit.title} className="rounded-2xl border border-cream/15 bg-cream/5 p-6">
                   <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-sun/20 text-sun">
                     <benefit.icon className="size-6" strokeWidth={1.5} />
                   </div>

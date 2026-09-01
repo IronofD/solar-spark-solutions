@@ -38,8 +38,8 @@ export function SiteHeader() {
             <Link
               key={link.to}
               to={link.to}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-navy"
-              activeProps={{ className: "text-navy font-semibold" }}
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-accent"
+              activeProps={{ className: "text-accent font-semibold" }}
             >
               {link.label}
             </Link>
@@ -83,7 +83,7 @@ export function SiteFooter() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               {navLinks.map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to} className="transition-colors hover:text-navy">
+                  <Link to={link.to} className="transition-colors hover:text-accent">
                     {link.label}
                   </Link>
                 </li>
@@ -98,22 +98,22 @@ export function SiteFooter() {
               <p>Akkal Building, Manakkad</p>
               <p>Thodupuzha, Kerala 685608</p>
               <p className="mt-2">
-                <a href="tel:+919995527452" className="transition-colors hover:text-navy">
+                <a href="tel:+919995527452" className="transition-colors hover:text-accent">
                   +91 99955 27452
                 </a>
               </p>
               <p>
-                <a href="tel:+919995547452" className="transition-colors hover:text-navy">
+                <a href="tel:+919995547452" className="transition-colors hover:text-accent">
                   +91 99955 47452
                 </a>
               </p>
               <p>
-                <a href="tel:+919995567452" className="transition-colors hover:text-navy">
+                <a href="tel:+919995567452" className="transition-colors hover:text-accent">
                   +91 99955 67452
                 </a>
               </p>
               <p>
-                <a href="mailto:javasolarsolutaions@gmail.com" className="transition-colors hover:text-navy">
+                <a href="mailto:javasolarsolutaions@gmail.com" className="transition-colors hover:text-accent">
                   javasolarsolutaions@gmail.com
                 </a>
               </p>

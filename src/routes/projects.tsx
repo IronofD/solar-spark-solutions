@@ -26,7 +26,7 @@ function ProjectsPage() {
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-2xl text-center">
             <span className="text-sm font-semibold uppercase tracking-wider text-sun">Project Gallery</span>
-            <h1 className="mt-3 font-display text-4xl font-bold text-navy md:text-5xl">Completed Solar Installations</h1>
+            <h1 className="mt-3 font-display text-4xl font-bold text-foreground md:text-5xl">Completed Solar Installations</h1>
             <p className="mt-4 text-muted-foreground">
               See how homes and businesses across Kerala are saving with solar after switching to Java Solar Solutions.
             </p>

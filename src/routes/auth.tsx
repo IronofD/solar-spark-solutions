@@ -75,7 +75,7 @@ function AuthPage() {
   return (
     <section className="px-6 py-20 lg:py-28">
       <div className="mx-auto max-w-md rounded-3xl border border-border bg-card p-8">
-        <h1 className="font-display text-2xl font-bold text-navy">
+        <h1 className="font-display text-2xl font-bold text-foreground">
           {mode === "signin" ? "Admin Sign In" : "Create Admin Account"}
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
@@ -101,7 +101,7 @@ function AuthPage() {
           </div>
           <button
             type="submit" disabled={busy}
-            className="w-full rounded-xl bg-navy px-6 py-3 font-semibold text-cream disabled:opacity-60"
+            className="w-full rounded-xl bg-primary px-6 py-3 font-semibold text-primary-foreground disabled:opacity-60"
           >
             {busy ? "Please wait…" : mode === "signin" ? "Sign In" : "Sign Up"}
           </button>
@@ -124,7 +124,7 @@ function AuthPage() {
         </button>
 
         <div className="mt-6 text-sm">
-          <Link to="/" className="text-muted-foreground hover:text-navy">← Back to website</Link>
+          <Link to="/" className="text-muted-foreground hover:text-accent">← Back to website</Link>
         </div>
       </div>
     </section>
