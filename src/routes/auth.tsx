@@ -101,7 +101,7 @@ function AuthPage() {
           </div>
           <button
             type="submit" disabled={busy}
-            className="w-full rounded-xl bg-navy px-6 py-3 font-semibold text-cream disabled:opacity-60"
+            className="w-full rounded-xl bg-primary px-6 py-3 font-semibold text-primary-foreground disabled:opacity-60"
           >
             {busy ? "Please wait…" : mode === "signin" ? "Sign In" : "Sign Up"}
           </button>

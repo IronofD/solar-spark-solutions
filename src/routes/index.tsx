@@ -59,7 +59,7 @@ function Index() {
                   <div
                     key={t.name}
                     className={`flex size-9 items-center justify-center rounded-full border-2 border-background text-xs font-semibold ${
-                      i === 1 ? "bg-sun text-foreground" : "bg-navy text-cream"
+                      i === 1 ? "bg-sun text-background" : "bg-primary text-primary-foreground"
                     }`}
                   >
                     {t.initials}
@@ -128,7 +128,7 @@ function Index() {
       </section>
 
       {/* Why choose */}
-      <section className="bg-navy px-6 py-20 text-cream lg:px-8 lg:py-28">
+      <section className="bg-card px-6 py-20 text-foreground lg:px-8 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
@@ -144,7 +144,7 @@ function Index() {
             </div>
             <div className="grid gap-6 sm:grid-cols-2">
               {benefits.map((benefit) => (
-                <div key={benefit.title} className="rounded-2xl border border-cream/10 bg-cream/5 p-6">
+                <div key={benefit.title} className="rounded-2xl border border-border bg-background/40 p-6">
                   <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-sun/20 text-sun">
                     <benefit.icon className="size-6" strokeWidth={1.5} />
                   </div>
