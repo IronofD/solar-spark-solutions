@@ -58,7 +58,7 @@
 :root {
   --radius: 0.75rem;
 
-  /* Light mode: warm cream background with deep navy text */
+  /* Light mode: soft off-white background with deep green text */
   --background: oklch(0.98 0.01 130);
   --foreground: oklch(0.24 0.05 150);
   --card: oklch(1 0 0);
@@ -90,7 +90,7 @@
 }
 
 .dark {
-  /* Dark mode: deep navy background with cream text */
+  /* Dark mode: deep green background with off-white text */
   --background: oklch(0.19 0.04 152);
   --foreground: oklch(0.96 0.01 130);
   --card: oklch(0.23 0.04 152);
