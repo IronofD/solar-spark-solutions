@@ -46,7 +46,7 @@ export function SiteHeader() {
           ))}
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-sun-dark px-5 py-2.5 text-sm font-semibold text-foreground shadow-sm transition-colors hover:bg-sun"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-sun-dark px-5 py-2.5 text-sm font-semibold text-foreground shadow-sm transition-all hover:scale-105"
           >
             Get Free Quote
             <ArrowRight className="size-4" />
@@ -54,7 +54,7 @@ export function SiteHeader() {
         </div>
         <a
           href="tel:+919995527452"
-          className="flex size-10 items-center justify-center rounded-full bg-sun-dark text-foreground md:hidden"
+          className="flex size-10 items-center justify-center rounded-full bg-sun-dark text-foreground transition-transform hover:scale-110 md:hidden"
           aria-label="Call Java Solar Solutions"
         >
           <Phone className="size-5" />
@@ -134,7 +134,7 @@ export function MobileCTA() {
       <div className="flex gap-3">
         <a
           href="tel:+919995527452"
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-sun-dark px-4 py-3 text-sm font-semibold text-foreground shadow-lg"
+          className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-sun-dark px-4 py-3 text-sm font-semibold text-foreground shadow-lg transition-transform hover:scale-[1.02]"
         >
           <Phone className="size-4" />
           Call
@@ -187,7 +187,7 @@ export function SectionCTA({
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 rounded-xl bg-sun-dark px-6 py-3 font-semibold text-foreground transition-colors hover:bg-sun"
+            className="inline-flex items-center gap-2 rounded-xl bg-sun-dark px-6 py-3 font-semibold text-foreground transition-all hover:scale-105"
           >
             Get Free Quote
             <ArrowRight className="size-4" />
