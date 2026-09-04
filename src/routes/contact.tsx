@@ -135,7 +135,7 @@ function ContactPage() {
               <label htmlFor="message" className="text-sm font-medium">Project Details</label>
               <textarea id="message" name="message" maxLength={2000} rows={4} placeholder="Tell us about your home, average electricity bill, or any questions..." className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-sun focus:ring-2 focus:ring-sun/20" />
             </div>
-            <button type="submit" disabled={busy} className="mt-6 w-full rounded-xl bg-sun-dark px-6 py-4 text-base font-semibold text-foreground shadow-lg shadow-sun-dark/20 hover:bg-sun disabled:opacity-60">
+            <button type="submit" disabled={busy} className="mt-6 w-full rounded-xl bg-sun-dark px-6 py-4 text-base font-semibold text-foreground shadow-lg shadow-sun-dark/20 transition-all hover:scale-[1.02] disabled:opacity-60">
               {busy ? "Sending…" : "Submit Inquiry"}
             </button>
 

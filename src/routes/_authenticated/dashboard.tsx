@@ -147,7 +147,7 @@ function AdminProjectsPage() {
           <div className="flex gap-2">
             <button
               onClick={() => { setDraft({ ...emptyCaseStudy(), sort_order: caseStudies.length + 1 }); setStatus(null); }}
-              className="inline-flex items-center gap-2 rounded-xl bg-sun-dark px-5 py-2.5 font-semibold text-foreground hover:bg-sun"
+              className="inline-flex items-center gap-2 rounded-xl bg-sun-dark px-5 py-2.5 font-semibold text-foreground transition-all hover:scale-105"
             >
               <Plus className="size-4" /> New case study
             </button>
