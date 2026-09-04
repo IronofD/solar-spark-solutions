@@ -102,7 +102,7 @@ export function ProjectsGallery() {
       <div className="mt-12 text-center">
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 rounded-xl bg-sun px-6 py-3 font-semibold text-foreground shadow-sm transition-colors hover:bg-sun-dark"
+          className="inline-flex items-center gap-2 rounded-xl bg-sun-dark px-6 py-3 font-semibold text-foreground shadow-sm transition-colors hover:bg-sun"
         >
           Start Your Project
           <ArrowRight className="size-4" />

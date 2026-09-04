@@ -30,7 +30,7 @@ function CommercialPage() {
             High-capacity solar installations for shops, offices, hospitals, resorts, and industrial units across Thodupuzha and Kerala. Offset daytime loads, gain depreciation benefits, and lock in stable energy costs.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link to="/contact" className="inline-flex items-center gap-2 rounded-xl bg-sun px-8 py-4 font-semibold text-foreground shadow-lg shadow-sun/20 hover:bg-sun-dark">
+            <Link to="/contact" className="inline-flex items-center gap-2 rounded-xl bg-sun-dark px-8 py-4 font-semibold text-foreground shadow-lg shadow-sun-dark/20 hover:bg-sun">
               Request Commercial Quote
               <ArrowRight className="size-5" />
             </Link>

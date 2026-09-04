@@ -45,7 +45,7 @@ function Index() {
               slash your electricity bills.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link to="/contact" className="inline-flex items-center justify-center gap-2 rounded-xl bg-sun px-8 py-4 text-base font-semibold text-foreground shadow-lg shadow-sun/20 transition-all hover:bg-sun-dark">
+              <Link to="/contact" className="inline-flex items-center justify-center gap-2 rounded-xl bg-sun-dark px-8 py-4 text-base font-semibold text-foreground shadow-lg shadow-sun-dark/20 transition-all hover:bg-sun">
                 Get Free Quote
                 <ArrowRight className="size-5" />
               </Link>
@@ -137,7 +137,7 @@ function Index() {
               <p className="mt-6 text-cream/80 leading-relaxed">
                 We understand the unique needs of Kerala homeowners and businesses. From heavy monsoon rains to high humidity, we design systems that last and perform at their best year after year.
               </p>
-              <Link to="/contact" className="mt-8 inline-flex items-center gap-2 rounded-xl bg-sun px-6 py-3 font-semibold text-foreground transition-colors hover:bg-sun-light">
+              <Link to="/contact" className="mt-8 inline-flex items-center gap-2 rounded-xl bg-sun-dark px-6 py-3 font-semibold text-foreground transition-colors hover:bg-sun">
                 Talk to Our Team
                 <ArrowRight className="size-4" />
               </Link>

@@ -32,7 +32,7 @@ function ResidentialPage() {
               A 3–5 kW rooftop system can eliminate almost your entire KSEB bill. We design, install, and maintain solar systems tailored to your roof, load, and budget.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link to="/contact" className="inline-flex items-center justify-center gap-2 rounded-xl bg-sun px-8 py-4 font-semibold text-foreground shadow-lg shadow-sun/20 hover:bg-sun-dark">
+              <Link to="/contact" className="inline-flex items-center justify-center gap-2 rounded-xl bg-sun-dark px-8 py-4 font-semibold text-foreground shadow-lg shadow-sun-dark/20 hover:bg-sun">
                 Get Free Home Assessment
                 <ArrowRight className="size-5" />
               </Link>
