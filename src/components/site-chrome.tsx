@@ -134,7 +134,7 @@ export function MobileCTA() {
       <div className="flex gap-3">
         <a
           href="tel:+919995527452"
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-navy px-4 py-3 text-sm font-semibold text-cream shadow-lg"
+          className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-sun px-4 py-3 text-sm font-semibold text-foreground shadow-lg"
         >
           <Phone className="size-4" />
           Call
@@ -156,7 +156,7 @@ export function FloatingContact() {
     <div className="fixed bottom-6 right-6 z-50 hidden flex-col gap-3 md:flex">
       <a
         href="tel:+919995527452"
-        className="flex size-12 items-center justify-center rounded-full bg-navy text-cream shadow-lg shadow-navy/30 transition-transform hover:scale-110"
+        className="flex size-12 items-center justify-center rounded-full bg-sun text-foreground shadow-lg shadow-sun/30 transition-transform hover:scale-110"
         aria-label="Call Java Solar Solutions"
       >
         <Phone className="size-5" />
