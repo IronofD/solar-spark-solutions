@@ -46,7 +46,7 @@ export function SiteHeader() {
           ))}
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-sun px-5 py-2.5 text-sm font-semibold text-foreground shadow-sm transition-colors hover:bg-sun-dark"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-sun-dark px-5 py-2.5 text-sm font-semibold text-foreground shadow-sm transition-colors hover:bg-sun"
           >
             Get Free Quote
             <ArrowRight className="size-4" />
@@ -54,7 +54,7 @@ export function SiteHeader() {
         </div>
         <a
           href="tel:+919995527452"
-          className="flex size-10 items-center justify-center rounded-full bg-sun text-foreground md:hidden"
+          className="flex size-10 items-center justify-center rounded-full bg-sun-dark text-foreground md:hidden"
           aria-label="Call Java Solar Solutions"
         >
           <Phone className="size-5" />
@@ -134,7 +134,7 @@ export function MobileCTA() {
       <div className="flex gap-3">
         <a
           href="tel:+919995527452"
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-sun px-4 py-3 text-sm font-semibold text-foreground shadow-lg"
+          className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-sun-dark px-4 py-3 text-sm font-semibold text-foreground shadow-lg"
         >
           <Phone className="size-4" />
           Call
@@ -156,7 +156,7 @@ export function FloatingContact() {
     <div className="fixed bottom-6 right-6 z-50 hidden flex-col gap-3 md:flex">
       <a
         href="tel:+919995527452"
-        className="flex size-12 items-center justify-center rounded-full bg-sun text-foreground shadow-lg shadow-sun/30 transition-transform hover:scale-110"
+        className="flex size-12 items-center justify-center rounded-full bg-sun-dark text-foreground shadow-lg shadow-sun-dark/30 transition-transform hover:scale-110"
         aria-label="Call Java Solar Solutions"
       >
         <Phone className="size-5" />
@@ -187,7 +187,7 @@ export function SectionCTA({
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 rounded-xl bg-sun px-6 py-3 font-semibold text-foreground transition-colors hover:bg-sun-light"
+            className="inline-flex items-center gap-2 rounded-xl bg-sun-dark px-6 py-3 font-semibold text-foreground transition-colors hover:bg-sun"
           >
             Get Free Quote
             <ArrowRight className="size-4" />
@@ -196,7 +196,7 @@ export function SectionCTA({
             href="tel:+919995527452"
             className="inline-flex items-center gap-2 rounded-xl border border-cream/30 bg-transparent px-6 py-3 font-semibold text-cream transition-colors hover:bg-cream/10"
           >
-            <Phone className="size-4" />
+            <Phone className="size-4 text-sun-dark" />
             Call Us
           </a>
         </div>
