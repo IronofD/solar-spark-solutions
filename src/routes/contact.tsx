@@ -10,7 +10,7 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
   head: () => ({
     meta: [
-      { title: "Contact Java Solar Solutions — Free Solar Quote in Kerala" },
+      { title: "Java Solar Solutions" },
       { name: "description", content: "Get a free site visit and custom solar quote in Thodupuzha and across Kerala. Call, WhatsApp, or send us a message." },
       { property: "og:title", content: "Contact Java Solar Solutions — Free Solar Quote in Kerala" },
       { property: "og:description", content: "Contact Java Solar Solutions for a free consultation and solar quote." },

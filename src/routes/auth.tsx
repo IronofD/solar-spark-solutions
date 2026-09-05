@@ -13,7 +13,7 @@ export const Route = createFileRoute("/auth")({
   validateSearch: (s: Record<string, unknown>) => ({ next: safeNext(s.next) }),
   head: () => ({
     meta: [
-      { title: "Admin Sign In — Java Solar Solutions" },
+      { title: "Java Solar Solutions" },
       { name: "description", content: "Sign in to manage Java Solar Solutions project case studies." },
       { name: "robots", content: "noindex" },
       { property: "og:title", content: "Admin Sign In — Java Solar Solutions" },

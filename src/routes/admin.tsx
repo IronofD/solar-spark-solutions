@@ -8,7 +8,7 @@ export const Route = createFileRoute("/admin")({
   component: HiddenAdminLogin,
   head: () => ({
     meta: [
-      { title: "Staff Access — Java Solar Solutions" },
+      { title: "Java Solar Solutions" },
       { name: "description", content: "Private staff access for managing Java Solar Solutions project case studies." },
       { name: "robots", content: "noindex, nofollow" },
       { property: "og:title", content: "Staff Access — Java Solar Solutions" },
