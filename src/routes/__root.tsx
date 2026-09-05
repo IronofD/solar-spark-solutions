@@ -89,7 +89,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "Java Solar Solutions" },
       {
         property: "og:title",
-        content: "Java Solar Solutions — Solar Power in Thodupuzha, Kerala",
+        content: "Java Solar Solutions",
       },
       {
         property: "og:description",

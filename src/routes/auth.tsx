@@ -16,7 +16,7 @@ export const Route = createFileRoute("/auth")({
       { title: "Java Solar Solutions" },
       { name: "description", content: "Sign in to manage Java Solar Solutions project case studies." },
       { name: "robots", content: "noindex" },
-      { property: "og:title", content: "Admin Sign In — Java Solar Solutions" },
+      { property: "og:title", content: "Java Solar Solutions" },
       { property: "og:description", content: "Team access for managing solar project case studies." },
       { property: "og:type", content: "website" },
     ],
