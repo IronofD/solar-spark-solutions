@@ -9,7 +9,7 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Java Solar Solutions — Affordable Solar in Thodupuzha, Kerala" },
+      { title: "Java Solar Solutions" },
       { name: "description", content: "Affordable rooftop solar for homes and businesses in Thodupuzha, Kerala. Free consultation, KSEB paperwork included, 25-year panel warranty." },
       { property: "og:title", content: "Java Solar Solutions — Affordable Solar in Thodupuzha, Kerala" },
       { property: "og:description", content: "Rooftop solar installations for homes and businesses in Kerala. Start saving from day one." },

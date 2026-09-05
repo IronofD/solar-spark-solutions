@@ -10,7 +10,7 @@ export const Route = createFileRoute("/_authenticated/dashboard")({
   component: AdminProjectsPage,
   head: () => ({
     meta: [
-      { title: "Manage Case Studies — Java Solar Solutions" },
+      { title: "Java Solar Solutions" },
       { name: "robots", content: "noindex" },
     ],
   }),
