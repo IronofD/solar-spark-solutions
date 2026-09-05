@@ -12,6 +12,7 @@ export const navLinks = [
   { label: "Residential", to: "/residential" as const },
   { label: "Commercial", to: "/commercial" as const },
   { label: "Projects", to: "/projects" as const },
+  { label: "Blog", to: "/blog" as const },
   { label: "About", to: "/about" as const },
   { label: "Contact", to: "/contact" as const },
 ];
