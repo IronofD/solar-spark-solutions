@@ -9,8 +9,8 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "Java Solar Solutions" },
-      { name: "description", content: "Founded in Thodupuzha, Java Solar Solutions brings global solar technology and local expertise to homes and businesses across Kerala." },
-      { property: "og:title", content: "About Java Solar Solutions — Solar Experts in Thodupuzha" },
+      { name: "description", content: "Java Solar Solutions brings global solar technology and local expertise to homes and businesses across Kerala." },
+      { property: "og:title", content: "Java Solar Solutions" },
       { property: "og:description", content: "Local Kerala solar installers with a 5.0 Google rating and hundreds of installed systems." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/about" },

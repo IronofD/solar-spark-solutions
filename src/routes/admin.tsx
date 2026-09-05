@@ -11,7 +11,7 @@ export const Route = createFileRoute("/admin")({
       { title: "Java Solar Solutions" },
       { name: "description", content: "Private staff access for managing Java Solar Solutions project case studies." },
       { name: "robots", content: "noindex, nofollow" },
-      { property: "og:title", content: "Staff Access — Java Solar Solutions" },
+      { property: "og:title", content: "Java Solar Solutions" },
       { property: "og:description", content: "Private staff access page." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
