@@ -253,7 +253,8 @@ function SolarKerala() {
               to 6 years — and the panels keep generating for 25 years or more.
             </p>
             <Link
-              to="/blog/solar-panel-cost-kerala-2026"
+              to="/blog/$slug"
+              params={{ slug: "solar-panel-cost-kerala-2026" }}
               className="mt-8 inline-flex items-center gap-2 rounded-xl bg-sun-dark px-6 py-3 font-semibold text-foreground transition-all hover:scale-105"
             >
               Read the Full Cost Guide
