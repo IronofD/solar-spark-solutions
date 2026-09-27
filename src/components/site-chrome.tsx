@@ -88,6 +88,11 @@ export function SiteFooter() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link to="/solar-company-kerala" className="transition-colors hover:text-accent">
+                  Solar Company in Kerala
+                </Link>
+              </li>
             </ul>
           </div>
           <div>

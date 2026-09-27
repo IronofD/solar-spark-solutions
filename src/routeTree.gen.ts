@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SolarCompanyKeralaRouteImport } from './routes/solar-company-kerala'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ResidentialRouteImport } from './routes/residential'
@@ -30,6 +31,11 @@ import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[
 import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
 import { Route as ApiPublicPhotoSplatRouteImport } from './routes/api/public/photo/$'
 
+const SolarCompanyKeralaRoute = SolarCompanyKeralaRouteImport.update({
+  id: '/solar-company-kerala',
+  path: '/solar-company-kerala',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -145,6 +151,7 @@ export interface FileRoutesByFullPath {
   '/residential': typeof ResidentialRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/solar-company-kerala': typeof SolarCompanyKeralaRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
@@ -166,6 +173,7 @@ export interface FileRoutesByTo {
   '/residential': typeof ResidentialRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/solar-company-kerala': typeof SolarCompanyKeralaRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
@@ -189,6 +197,7 @@ export interface FileRoutesById {
   '/residential': typeof ResidentialRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/solar-company-kerala': typeof SolarCompanyKeralaRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
@@ -212,6 +221,7 @@ export interface FileRouteTypes {
     | '/residential'
     | '/services'
     | '/sitemap.xml'
+    | '/solar-company-kerala'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/dashboard'
@@ -233,6 +243,7 @@ export interface FileRouteTypes {
     | '/residential'
     | '/services'
     | '/sitemap.xml'
+    | '/solar-company-kerala'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/dashboard'
@@ -255,6 +266,7 @@ export interface FileRouteTypes {
     | '/residential'
     | '/services'
     | '/sitemap.xml'
+    | '/solar-company-kerala'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/_authenticated/dashboard'
@@ -278,6 +290,7 @@ export interface RootRouteChildren {
   ResidentialRoute: typeof ResidentialRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SolarCompanyKeralaRoute: typeof SolarCompanyKeralaRoute
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -289,6 +302,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/solar-company-kerala': {
+      id: '/solar-company-kerala'
+      path: '/solar-company-kerala'
+      fullPath: '/solar-company-kerala'
+      preLoaderRoute: typeof SolarCompanyKeralaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -456,6 +476,7 @@ const rootRouteChildren: RootRouteChildren = {
   ResidentialRoute: ResidentialRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SolarCompanyKeralaRoute: SolarCompanyKeralaRoute,
   Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
   Char91DotwellKnownChar93OauthProtectedResourceRoute:
     Char91DotwellKnownChar93OauthProtectedResourceRoute,
