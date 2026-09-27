@@ -13,7 +13,7 @@ export const Route = createFileRoute("/blog/")({
         content:
           "Solar guides for Kerala homes and businesses: installation costs, KSEB net metering, subsidies, monsoon performance, and real savings.",
       },
-      { property: "og:title", content: "Java Solar Solutions" },
+      { property: "og:title", content: "Solar Blog — Kerala Solar Guides & Tips | Java Solar Solutions" },
       {
         property: "og:description",
         content:

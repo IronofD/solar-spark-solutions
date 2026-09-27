@@ -10,7 +10,7 @@ export const Route = createFileRoute("/projects")({
     meta: [
       { title: "Solar Projects & Case Studies — Java Solar Solutions" },
       { name: "description", content: "Completed solar installations for homes and businesses across Kerala. See real savings and system details." },
-      { property: "og:title", content: "Java Solar Solutions" },
+      { property: "og:title", content: "Solar Projects & Case Studies — Java Solar Solutions" },
       { property: "og:description", content: "Real completed solar installations across Kerala with system sizes and savings." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/projects" },
