@@ -14,7 +14,7 @@ export const Route = createFileRoute("/blog/$slug")({
     const post = loaderData?.post;
     return {
       meta: [
-        { title: "Java Solar Solutions" },
+        { title: post ? `${post.title} — Java Solar Solutions` : "Solar Guide — Java Solar Solutions" },
         {
           name: "description",
           content: post?.description ?? "Solar guide from Java Solar Solutions.",
