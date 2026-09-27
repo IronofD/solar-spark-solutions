@@ -7,7 +7,7 @@ export const Route = createFileRoute("/blog/")({
   component: BlogIndex,
   head: () => ({
     meta: [
-      { title: "Java Solar Solutions" },
+      { title: "Solar Blog — Kerala Solar Guides & Tips | Java Solar Solutions" },
       {
         name: "description",
         content:

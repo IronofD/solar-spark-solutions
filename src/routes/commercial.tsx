@@ -6,7 +6,7 @@ export const Route = createFileRoute("/commercial")({
   component: CommercialPage,
   head: () => ({
     meta: [
-      { title: "Java Solar Solutions" },
+      { title: "Commercial Solar Installation in Kerala — Java Solar Solutions" },
       { name: "description", content: "Commercial and industrial solar installations for shops, offices, hospitals, and factories across Kerala. Cut operating costs and claim depreciation." },
       { property: "og:title", content: "Java Solar Solutions" },
       { property: "og:description", content: "High-capacity solar for Kerala businesses — reduce operating costs and gain tax benefits." },

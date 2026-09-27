@@ -6,7 +6,7 @@ export const Route = createFileRoute("/services")({
   component: ServicesPage,
   head: () => ({
     meta: [
-      { title: "Java Solar Solutions" },
+      { title: "Solar Services in Kerala — Java Solar Solutions" },
       { name: "description", content: "Residential and commercial solar installations, KSEB paperwork, maintenance, and long-term support across Kerala." },
       { property: "og:title", content: "Java Solar Solutions" },
       { property: "og:description", content: "End-to-end solar services for Kerala homes and businesses." },

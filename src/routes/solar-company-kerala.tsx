@@ -16,7 +16,7 @@ export const Route = createFileRoute("/solar-company-kerala")({
   component: SolarKerala,
   head: () => ({
     meta: [
-      { title: "Java Solar Solutions" },
+      { title: "Solar Panel Installation in Kerala — Java Solar Solutions" },
       {
         name: "description",
         content:
