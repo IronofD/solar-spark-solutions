@@ -7,9 +7,9 @@ export const Route = createFileRoute("/residential")({
   component: ResidentialPage,
   head: () => ({
     meta: [
-      { title: "Java Solar Solutions" },
+      { title: "Residential Rooftop Solar in Kerala — Java Solar Solutions" },
       { name: "description", content: "Rooftop solar for Kerala homes. Cut your KSEB bill, gain energy independence, and enjoy 25-year panel warranties." },
-      { property: "og:title", content: "Java Solar Solutions" },
+      { property: "og:title", content: "Residential Rooftop Solar in Kerala — Java Solar Solutions" },
       { property: "og:description", content: "Custom rooftop solar systems for homes across Kerala." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/residential" },

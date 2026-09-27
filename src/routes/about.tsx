@@ -8,9 +8,9 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
   head: () => ({
     meta: [
-      { title: "Java Solar Solutions" },
+      { title: "About Java Solar Solutions — Solar Installers in Kerala" },
       { name: "description", content: "Java Solar Solutions brings global solar technology and local expertise to homes and businesses across Kerala." },
-      { property: "og:title", content: "Java Solar Solutions" },
+      { property: "og:title", content: "About Java Solar Solutions — Solar Installers in Kerala" },
       { property: "og:description", content: "Local Kerala solar installers with a 5.0 Google rating and hundreds of installed systems." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/about" },

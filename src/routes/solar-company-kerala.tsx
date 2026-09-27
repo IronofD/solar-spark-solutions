@@ -16,13 +16,13 @@ export const Route = createFileRoute("/solar-company-kerala")({
   component: SolarKerala,
   head: () => ({
     meta: [
-      { title: "Java Solar Solutions" },
+      { title: "Solar Panel Installation in Kerala — Java Solar Solutions" },
       {
         name: "description",
         content:
           "Solar company in Kerala for rooftop solar panel installation. On-grid systems, KSEB net metering, subsidy support, and free savings reports for homes and businesses.",
       },
-      { property: "og:title", content: "Java Solar Solutions" },
+      { property: "og:title", content: "Solar Panel Installation in Kerala — Java Solar Solutions" },
       {
         property: "og:description",
         content:

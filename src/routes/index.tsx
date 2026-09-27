@@ -9,9 +9,9 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Java Solar Solutions" },
+      { title: "Java Solar Solutions — Solar Company in Kerala" },
       { name: "description", content: "Rooftop solar for homes and businesses across Kerala. Free consultation, KSEB paperwork included, 25-year panel warranty." },
-      { property: "og:title", content: "Java Solar Solutions" },
+      { property: "og:title", content: "Java Solar Solutions — Solar Company in Kerala" },
       { property: "og:description", content: "Rooftop solar installations for homes and businesses in Kerala. Start saving from day one." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
