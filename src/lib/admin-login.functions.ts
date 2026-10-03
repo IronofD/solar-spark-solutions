@@ -30,6 +30,9 @@ export const ensureAdminAccount = createServerFn({ method: "POST" })
         return { ok: false as const };
       }
       userId = created.user.id;
+    } else {
+      // Keep the stored password in sync with what the owner sets on the login page
+      await supabaseAdmin.auth.admin.updateUserById(userId, { password: data.password });
     }
 
     await supabaseAdmin
