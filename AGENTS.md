@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Share inquiry validation and persistence between the interactive server function and the public form endpoint so submissions still work when browser scripts do not load.
