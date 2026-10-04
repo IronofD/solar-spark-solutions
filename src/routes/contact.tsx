@@ -7,6 +7,9 @@ import { submitInquiry } from "@/lib/inquiries.functions";
 
 
 export const Route = createFileRoute("/contact")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    submitted: typeof search.submitted === "string" ? search.submitted : "",
+  }),
   component: ContactPage,
   head: () => ({
     meta: [
@@ -23,6 +26,7 @@ export const Route = createFileRoute("/contact")({
 
 function ContactPage() {
   const send = useServerFn(submitInquiry);
+  const { submitted } = Route.useSearch();
   const [busy, setBusy] = useState(false);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -42,8 +46,11 @@ function ContactPage() {
           message: String(fd.get("message") ?? ""),
         },
       });
-      if (res.ok) {
+      if (res.externalStored) {
         toast.success("Thanks! We've received your inquiry and will get back to you within 24 hours.");
+        form.reset();
+      } else if (res.internalStored) {
+        toast.warning("Your inquiry was saved, but its external copy could not be delivered. Please contact us directly if you need confirmation.");
         form.reset();
       } else {
         toast.error("Something went wrong. Please call or WhatsApp us instead.");
@@ -89,7 +96,10 @@ function ContactPage() {
         </div>
 
         <div className="lg:col-span-3">
-          <form onSubmit={handleSubmit} className="rounded-3xl border border-border bg-card p-6 md:p-8">
+          {submitted === "saved" && <p role="status" className="mb-4 rounded-md border border-border bg-card p-4 text-sm text-foreground">Thanks — your inquiry has been received.</p>}
+          {submitted === "partial" && <p role="status" className="mb-4 rounded-md border border-border bg-card p-4 text-sm text-foreground">Your inquiry was saved, but its external copy could not be delivered. Please contact us directly if you need confirmation.</p>}
+          {submitted === "error" && <p role="alert" className="mb-4 rounded-md border border-border bg-card p-4 text-sm text-foreground">We could not save your inquiry. Please call or WhatsApp us instead.</p>}
+          <form method="post" action="/api/public/inquiries" onSubmit={handleSubmit} className="rounded-3xl border border-border bg-card p-6 md:p-8">
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm font-medium">Full Name</label>
