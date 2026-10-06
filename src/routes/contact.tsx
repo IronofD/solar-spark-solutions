@@ -1,15 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { submitInquiry } from "@/lib/inquiries.functions";
 
 
 export const Route = createFileRoute("/contact")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    submitted: typeof search.submitted === "string" ? search.submitted : "",
-  }),
   component: ContactPage,
   head: () => ({
     meta: [
@@ -26,8 +23,12 @@ export const Route = createFileRoute("/contact")({
 
 function ContactPage() {
   const send = useServerFn(submitInquiry);
-  const { submitted } = Route.useSearch();
   const [busy, setBusy] = useState(false);
+  const [submitted, setSubmitted] = useState("");
+
+  useEffect(() => {
+    setSubmitted(new URLSearchParams(window.location.search).get("submitted") ?? "");
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
