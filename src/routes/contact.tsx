@@ -7,9 +7,8 @@ import { submitInquiry } from "@/lib/inquiries.functions";
 
 
 export const Route = createFileRoute("/contact")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    submitted: typeof search.submitted === "string" ? search.submitted : "",
-  }),
+  validateSearch: (search: Record<string, unknown>) =>
+    typeof search.submitted === "string" ? { submitted: search.submitted } : {},
   component: ContactPage,
   head: () => ({
     meta: [
