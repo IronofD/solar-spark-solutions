@@ -75,6 +75,10 @@ export type Database = {
         Row: {
           created_at: string
           email: string | null
+          external_sync_attempts: number
+          external_sync_error: string | null
+          external_sync_status: string
+          external_synced_at: string | null
           id: string
           location: string | null
           message: string | null
@@ -86,6 +90,10 @@ export type Database = {
         Insert: {
           created_at?: string
           email?: string | null
+          external_sync_attempts?: number
+          external_sync_error?: string | null
+          external_sync_status?: string
+          external_synced_at?: string | null
           id?: string
           location?: string | null
           message?: string | null
@@ -97,6 +105,10 @@ export type Database = {
         Update: {
           created_at?: string
           email?: string | null
+          external_sync_attempts?: number
+          external_sync_error?: string | null
+          external_sync_status?: string
+          external_synced_at?: string | null
           id?: string
           location?: string | null
           message?: string | null
