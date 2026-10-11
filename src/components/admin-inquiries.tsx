@@ -34,6 +34,7 @@ export function AdminInquiries() {
   const [service, setService] = useState("all");
   const [location, setLocation] = useState("");
   const [range, setRange] = useState("all");
+  const [syncStatus, setSyncStatus] = useState("all");
   const [retryMessage, setRetryMessage] = useState<{ id: string; text: string; ok: boolean } | null>(null);
 
   const retryMutation = useMutation({
@@ -54,13 +55,19 @@ export function AdminInquiries() {
   const { data: inquiries = [], isLoading, error } = useQuery({
     queryKey: ["admin-inquiries"],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from("inquiries")
-        .select("id, name, phone, email, location, service_type, monthly_bill, message, created_at, external_sync_status, external_sync_attempts, external_synced_at, external_sync_error")
-        .order("created_at", { ascending: false })
-        .limit(500);
-      if (error) throw error;
-      return (data ?? []) as Inquiry[];
+      const pageSize = 500;
+      const all: Inquiry[] = [];
+      for (let offset = 0; ; offset += pageSize) {
+        const { data, error } = await supabase
+          .from("inquiries")
+          .select("id, name, phone, email, location, service_type, monthly_bill, message, created_at, external_sync_status, external_sync_attempts, external_synced_at, external_sync_error")
+          .order("created_at", { ascending: false })
+          .range(offset, offset + pageSize - 1);
+        if (error) throw error;
+        const page = (data ?? []) as Inquiry[];
+        all.push(...page);
+        if (page.length < pageSize) return all;
+      }
     },
   });
 
@@ -71,9 +78,12 @@ export function AdminInquiries() {
       if (service !== "all" && (i.service_type ?? "") !== service) return false;
       if (q && !(i.location ?? "").toLowerCase().includes(q)) return false;
       if (cutoff && new Date(i.created_at).getTime() < cutoff) return false;
+      if (syncStatus !== "all" && (i.external_sync_status ?? "unknown") !== syncStatus) return false;
       return true;
     });
-  }, [inquiries, service, location, range]);
+  }, [inquiries, service, location, range, syncStatus]);
+
+  const needsAttention = inquiries.filter((i) => i.external_sync_status !== "synced").length;
 
   return (
     <div className="mt-16">
@@ -86,7 +96,7 @@ export function AdminInquiries() {
         </div>
       </div>
 
-      <div className="mt-6 grid gap-4 rounded-2xl border border-border bg-card p-4 sm:grid-cols-3">
+      <div className="mt-6 grid gap-4 rounded-2xl border border-border bg-card p-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-2">
           <label htmlFor="f-service" className="text-sm font-medium">Service type</label>
           <select
@@ -121,7 +131,26 @@ export function AdminInquiries() {
             ))}
           </select>
         </div>
+        <div className="space-y-2">
+          <label htmlFor="f-sync" className="text-sm font-medium">External delivery</label>
+          <select
+            id="f-sync" value={syncStatus} onChange={(e) => setSyncStatus(e.target.value)}
+            className="w-full rounded-xl border border-input bg-background px-4 py-2.5 text-sm"
+          >
+            <option value="all">All delivery statuses</option>
+            <option value="failed">Failed</option>
+            <option value="pending">Pending</option>
+            <option value="synced">Delivered</option>
+            <option value="unknown">Unknown</option>
+          </select>
+        </div>
       </div>
+
+      {!isLoading && !error && (
+        <p className="mt-4 text-sm text-muted-foreground">
+          {inquiries.length - needsAttention} delivered · {needsAttention} need attention
+        </p>
+      )}
 
       {error && (
         <p className="mt-4 rounded-xl bg-muted px-4 py-3 text-sm text-destructive">
@@ -187,7 +216,7 @@ export function AdminInquiries() {
                   <AlertCircle className="size-4 shrink-0 text-destructive" />
                 )}
                 <span className="font-medium text-foreground">
-                  {i.external_sync_status === "synced" ? "Delivered to external database" : i.external_sync_status === "pending" ? "Delivery pending" : i.external_sync_status === "failed" ? "Delivery failed" : "Not yet synced"}
+                  {i.external_sync_status === "synced" ? "Delivered to external database" : i.external_sync_status === "pending" ? "Delivery pending" : i.external_sync_status === "failed" ? "Delivery failed" : "Delivery status unknown"}
                 </span>
                 {i.external_synced_at && (
                   <span className="text-xs text-muted-foreground">
@@ -199,7 +228,14 @@ export function AdminInquiries() {
                 <button
                   type="button"
                   disabled={retryMutation.isPending}
-                  onClick={() => { setRetryMessage(null); retryMutation.mutate(i.id); }}
+                  onClick={() => {
+                    const confirmed = window.confirm(
+                      "Retry delivery to the external database? If this inquiry was already delivered, the retry may create a duplicate.",
+                    );
+                    if (!confirmed) return;
+                    setRetryMessage(null);
+                    retryMutation.mutate(i.id);
+                  }}
                   className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-muted disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   <RefreshCw className={`size-4 ${retryMutation.isPending && retryMutation.variables === i.id ? "animate-spin" : ""}`} />
