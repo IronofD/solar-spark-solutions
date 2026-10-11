@@ -4,3 +4,4 @@
 - [x] Verify blog builds and renders
 - [x] Dedicated Kerala landing page at /solar-company-kerala with useful content, LocalBusiness JSON-LD, sitemap + footer link
 - [x] Diagnose and fix inquiry delivery to the external database, including a native form-submit fallback
+- [ ] Add admin inquiry delivery-status visibility and a secure retry action for unsynced leads
