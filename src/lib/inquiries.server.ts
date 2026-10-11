@@ -165,7 +165,15 @@ export async function retryInquiryDelivery(id: string) {
     return { ok: true, status: "synced", attempts: inquiry.external_sync_attempts, alreadySynced: true };
   }
 
-  const parsed = inquirySchema.safeParse(inquiry);
+  const parsed = inquirySchema.safeParse({
+    name: inquiry.name,
+    phone: inquiry.phone ?? "",
+    email: inquiry.email ?? "",
+    location: inquiry.location ?? "",
+    service_type: inquiry.service_type ?? "",
+    monthly_bill: inquiry.monthly_bill ?? "",
+    message: inquiry.message ?? "",
+  });
   if (!parsed.success) throw new Error("This inquiry cannot be retried because its saved details are invalid.");
 
   const attempts = inquiry.external_sync_attempts + 1;
