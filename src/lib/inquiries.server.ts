@@ -148,7 +148,6 @@ export async function saveInquiry(data: Inquiry) {
     ok: internalStored || delivery.ok,
     internalStored,
     externalStored: delivery.ok,
-    externalError: delivery.error,
   };
 }
 
