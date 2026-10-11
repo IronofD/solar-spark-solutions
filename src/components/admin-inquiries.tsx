@@ -1,7 +1,9 @@
 import { useMemo, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { Mail, Phone, MapPin, Search } from "lucide-react";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
+import { AlertCircle, CheckCircle2, Clock3, Mail, MapPin, Phone, RefreshCw, Search } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { retryInquirySync } from "@/lib/inquiries.functions";
 
 type Inquiry = {
   id: string;
@@ -13,6 +15,10 @@ type Inquiry = {
   monthly_bill: string | null;
   message: string | null;
   created_at: string;
+  external_sync_status: string;
+  external_sync_attempts: number;
+  external_synced_at: string | null;
+  external_sync_error: string | null;
 };
 
 const DATE_RANGES = [
@@ -23,16 +29,34 @@ const DATE_RANGES = [
 ];
 
 export function AdminInquiries() {
+  const queryClient = useQueryClient();
+  const retrySync = useServerFn(retryInquirySync);
   const [service, setService] = useState("all");
   const [location, setLocation] = useState("");
   const [range, setRange] = useState("all");
+  const [retryMessage, setRetryMessage] = useState<{ id: string; text: string; ok: boolean } | null>(null);
+
+  const retryMutation = useMutation({
+    mutationFn: (id: string) => retrySync({ data: { id } }),
+    onSuccess: async (result, id) => {
+      await queryClient.invalidateQueries({ queryKey: ["admin-inquiries"] });
+      setRetryMessage({
+        id,
+        ok: result.ok,
+        text: result.ok ? "Delivered to the external database." : result.error ?? "Delivery failed. Try again later.",
+      });
+    },
+    onError: (error, id) => {
+      setRetryMessage({ id, ok: false, text: error.message || "Retry failed. Please try again." });
+    },
+  });
 
   const { data: inquiries = [], isLoading, error } = useQuery({
     queryKey: ["admin-inquiries"],
     queryFn: async () => {
       const { data, error } = await supabase
         .from("inquiries")
-        .select("id, name, phone, email, location, service_type, monthly_bill, message, created_at")
+        .select("id, name, phone, email, location, service_type, monthly_bill, message, created_at, external_sync_status, external_sync_attempts, external_synced_at, external_sync_error")
         .order("created_at", { ascending: false })
         .limit(500);
       if (error) throw error;
@@ -152,6 +176,48 @@ export function AdminInquiries() {
             </div>
 
             {i.message && <p className="mt-3 whitespace-pre-line text-sm text-muted-foreground">{i.message}</p>}
+
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-4">
+              <div className="flex min-w-0 items-center gap-2 text-sm">
+                {i.external_sync_status === "synced" ? (
+                  <CheckCircle2 className="size-4 shrink-0 text-accent" />
+                ) : i.external_sync_status === "pending" ? (
+                  <Clock3 className="size-4 shrink-0 text-muted-foreground" />
+                ) : (
+                  <AlertCircle className="size-4 shrink-0 text-destructive" />
+                )}
+                <span className="font-medium text-foreground">
+                  {i.external_sync_status === "synced" ? "Delivered to external database" : i.external_sync_status === "pending" ? "Delivery pending" : i.external_sync_status === "failed" ? "Delivery failed" : "Not yet synced"}
+                </span>
+                {i.external_synced_at && (
+                  <span className="text-xs text-muted-foreground">
+                    {new Date(i.external_synced_at).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" })}
+                  </span>
+                )}
+              </div>
+              {i.external_sync_status !== "synced" && (
+                <button
+                  type="button"
+                  disabled={retryMutation.isPending}
+                  onClick={() => { setRetryMessage(null); retryMutation.mutate(i.id); }}
+                  className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-muted disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  <RefreshCw className={`size-4 ${retryMutation.isPending && retryMutation.variables === i.id ? "animate-spin" : ""}`} />
+                  {retryMutation.isPending && retryMutation.variables === i.id ? "Retrying…" : "Retry delivery"}
+                </button>
+              )}
+              {retryMessage?.id === i.id && (
+                <p role={retryMessage.ok ? "status" : "alert"} className={`w-full text-sm ${retryMessage.ok ? "text-accent" : "text-destructive"}`}>
+                  {retryMessage.text}
+                </p>
+              )}
+              {i.external_sync_status === "failed" && i.external_sync_error && (
+                <p className="w-full break-words text-xs text-muted-foreground">Last error: {i.external_sync_error}</p>
+              )}
+              {i.external_sync_attempts > 0 && i.external_sync_status !== "synced" && (
+                <p className="w-full text-xs text-muted-foreground">Attempts: {i.external_sync_attempts}</p>
+              )}
+            </div>
           </article>
         ))}
       </div>
