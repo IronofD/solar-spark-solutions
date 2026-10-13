@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
-import { AlertCircle, CheckCircle2, Clock3, Mail, MapPin, Phone, RefreshCw, Search } from "lucide-react";
+import { AlertCircle, CheckCircle2, CircleHelp, Clock3, Mail, MapPin, Phone, RefreshCw, Search } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { retryInquirySync } from "@/lib/inquiries.functions";
 
@@ -83,7 +83,8 @@ export function AdminInquiries() {
     });
   }, [inquiries, service, location, range, syncStatus]);
 
-  const needsAttention = inquiries.filter((i) => i.external_sync_status !== "synced").length;
+  const needsAttention = inquiries.filter((i) => i.external_sync_status === "failed" || i.external_sync_status === "pending").length;
+  const notRecorded = inquiries.filter((i) => i.external_sync_status === "unknown").length;
 
   return (
     <div className="mt-16">
@@ -148,7 +149,7 @@ export function AdminInquiries() {
 
       {!isLoading && !error && (
         <p className="mt-4 text-sm text-muted-foreground">
-          {inquiries.length - needsAttention} delivered · {needsAttention} need attention
+          {inquiries.length - needsAttention - notRecorded} delivered · {needsAttention} need attention · {notRecorded} older leads without a delivery record
         </p>
       )}
 
@@ -212,11 +213,13 @@ export function AdminInquiries() {
                   <CheckCircle2 className="size-4 shrink-0 text-accent" />
                 ) : i.external_sync_status === "pending" ? (
                   <Clock3 className="size-4 shrink-0 text-muted-foreground" />
+                ) : i.external_sync_status === "unknown" ? (
+                  <CircleHelp className="size-4 shrink-0 text-muted-foreground" />
                 ) : (
                   <AlertCircle className="size-4 shrink-0 text-destructive" />
                 )}
                 <span className="font-medium text-foreground">
-                  {i.external_sync_status === "synced" ? "Delivered to external database" : i.external_sync_status === "pending" ? "Delivery pending" : i.external_sync_status === "failed" ? "Delivery failed" : "Delivery status unknown"}
+                  {i.external_sync_status === "synced" ? "Delivered to external database" : i.external_sync_status === "pending" ? "Delivery pending" : i.external_sync_status === "failed" ? "Delivery failed" : "Older lead · delivery not recorded"}
                 </span>
                 {i.external_synced_at && (
                   <span className="text-xs text-muted-foreground">
