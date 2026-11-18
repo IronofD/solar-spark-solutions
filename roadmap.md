@@ -5,3 +5,4 @@
 - [x] Dedicated Kerala landing page at /solar-company-kerala with useful content, LocalBusiness JSON-LD, sitemap + footer link
 - [x] Diagnose and fix inquiry delivery to the external database, including a native form-submit fallback
 - [x] Add admin inquiry delivery-status visibility and a secure retry action for unsynced leads
+- [ ] Plan and migrate all Supabase-backed features (database, sign-in, photo files, and external inquiry copy) to Turso and Clerk; preserve records and keep the current setup intact until cutover is verified
