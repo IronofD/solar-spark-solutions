@@ -7,4 +7,6 @@
 - [x] Add admin inquiry delivery-status visibility and a secure retry action for unsynced leads
 - [ ] Plan and migrate all Supabase-backed features (database, sign-in, photo files, and external inquiry copy) to Turso and Clerk; preserve records and keep the current setup intact until cutover is verified
 - [ ] Connect the provided Turso database using a newly rotated token; the old token was shared in chat and must not be reused
-- [ ] Confirm whether sign-in should use Clerk or a custom Turso-backed login before changing authentication
+- [x] Use Clerk for sign-in; store the admin role and app records in Turso
+- [ ] Set up Clerk for this project after the setup checklist is approved and its keys are securely connected
+- [ ] Copy inquiries, case studies, and photo bytes from the current backend to Turso; verify counts and samples before cutover
