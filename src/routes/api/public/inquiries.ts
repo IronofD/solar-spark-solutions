@@ -17,7 +17,7 @@ export const Route = createFileRoute("/api/public/inquiries")({
         const result = await saveInquiry(parsed.data);
         destination.searchParams.set(
           "submitted",
-          result.externalStored ? "saved" : result.internalStored ? "partial" : "error",
+          result.internalStored ? "saved" : "error",
         );
         return Response.redirect(destination, 303);
       },

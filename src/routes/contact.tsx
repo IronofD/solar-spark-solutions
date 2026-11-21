@@ -47,11 +47,8 @@ function ContactPage() {
           message: String(fd.get("message") ?? ""),
         },
       });
-      if (res.externalStored) {
+      if (res.internalStored) {
         toast.success("Thanks! We've received your inquiry and will get back to you within 24 hours.");
-        form.reset();
-      } else if (res.internalStored) {
-        toast.warning("Your inquiry was saved, but its external copy could not be delivered. Please contact us directly if you need confirmation.");
         form.reset();
       } else {
         toast.error("Something went wrong. Please call or WhatsApp us instead.");

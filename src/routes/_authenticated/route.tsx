@@ -1,12 +1,11 @@
 import { createFileRoute, Outlet, redirect } from "@tanstack/react-router";
-import { supabase } from "@/integrations/supabase/client";
+import { getClerkAdminStatus } from "@/lib/clerk.functions";
 
 export const Route = createFileRoute("/_authenticated")({
-  ssr: false,
   beforeLoad: async () => {
-    const { data, error } = await supabase.auth.getUser();
-    if (error || !data.user) throw redirect({ to: "/auth", search: { next: undefined } });
-    return { user: data.user };
+    const state = await getClerkAdminStatus();
+    if (!state.isAuthenticated || !state.isAdmin) throw redirect({ to: "/admin" });
+    return state;
   },
   component: () => <Outlet />,
 });

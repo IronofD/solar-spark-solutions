@@ -14,6 +14,8 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader, SiteFooter, MobileCTA, FloatingContact } from "../components/site-chrome";
 import { Toaster } from "../components/ui/sonner";
+import { ClerkProvider } from "@clerk/tanstack-react-start";
+import { getClerkPublishableKey } from "../lib/clerk.functions";
 
 
 function NotFoundComponent() {
@@ -77,6 +79,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  loader: () => getClerkPublishableKey(),
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -143,18 +146,20 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const clerkPublishableKey = Route.useLoaderData();
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen font-sans text-foreground antialiased">
-        <SiteHeader />
-        <Outlet />
-        <SiteFooter />
-        <MobileCTA />
-        <FloatingContact />
-      </div>
-      <Toaster />
-
-    </QueryClientProvider>
+    <ClerkProvider publishableKey={clerkPublishableKey}>
+      <QueryClientProvider client={queryClient}>
+        <div className="min-h-screen font-sans text-foreground antialiased">
+          <SiteHeader />
+          <Outlet />
+          <SiteFooter />
+          <MobileCTA />
+          <FloatingContact />
+        </div>
+        <Toaster />
+      </QueryClientProvider>
+    </ClerkProvider>
   );
 }
